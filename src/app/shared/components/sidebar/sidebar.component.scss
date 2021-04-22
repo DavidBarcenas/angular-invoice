@@ -5,6 +5,8 @@
   height: 80px;
   background: var(--sidebar-bg);
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 99;
 
   &-logo {
