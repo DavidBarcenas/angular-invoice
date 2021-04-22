@@ -1,4 +1,4 @@
-@import "./app/styles/core.scss";
+@import "./app/sass/core.scss";
 
 * {
   box-sizing: border-box;
@@ -8,4 +8,10 @@
 
 body {
   font-family: "Spartan", sans-serif;
+}
+
+button {
+  background: transparent;
+  border: none;
+  outline: none;
 }
