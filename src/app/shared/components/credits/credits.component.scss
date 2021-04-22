@@ -35,6 +35,7 @@ $gradient: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
   }
 
   h2 {
+    font-family: "Roboto", sans-serif;
     font-size: 2rem;
     font-weight: 300;
     background: $gradient;
@@ -57,6 +58,7 @@ $gradient: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
     font-family: "Spartan", serif;
     display: block;
     margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
 
     .icon-link-external {
       width: 20px;
