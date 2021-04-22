@@ -39,6 +39,7 @@
   &-button--theme {
     background: transparent;
     border: none;
+    cursor: pointer;
   }
 
   &-button--credits {
@@ -47,6 +48,7 @@
     background: none;
     border-left: 1px solid #494e6e;
     height: 100%;
+    cursor: pointer;
 
     img {
       border-radius: 50%;
