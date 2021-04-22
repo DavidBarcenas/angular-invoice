@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,26 +11,25 @@ export class ThemeService {
 
   darkThemeSelected = false;
 
+  constructor() {
+    this.darkThemeSelected =
+      localStorage.getItem(this.THEME_KEY) === this.DARK_THEME_VALUE;
+  }
+
   setThemeOnStart(): void {
-    if (this.isDarkThemeSelected()) {
+    if (this.darkThemeSelected) {
       this.setDarkTheme();
     } else {
       this.setLightTheme();
     }
   }
 
-  public toggleTheme() {
+  public toggleTheme(): void {
     if (this.darkThemeSelected) {
       this.setLightTheme();
     } else {
       this.setDarkTheme();
     }
-  }
-
-  private isDarkThemeSelected(): boolean {
-    this.darkThemeSelected =
-      localStorage.getItem(this.THEME_KEY) === this.DARK_THEME_VALUE;
-    return this.darkThemeSelected;
   }
 
   private setLightTheme() {

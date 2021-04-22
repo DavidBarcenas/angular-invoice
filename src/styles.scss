@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: "Spartan", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 button {
@@ -16,6 +16,36 @@ button {
   outline: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 .theme-animation {
   transition: color 0.2s, background 0.3s;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }

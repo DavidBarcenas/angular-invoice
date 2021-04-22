@@ -1,0 +1,20 @@
+<div class="credits flex-center" [class.close-credits]="animateClose">
+  <div class="credits-mask" (click)="handleClose()"></div>
+  <div class="credits-container">
+    <img
+      src="../../../../assets/img/avatar-credits.jpg"
+      alt="ApplePieGiraffe"
+      class="credits-logo"
+    />
+    <h2>ApplePieGiraffe</h2>
+    <a target="_blank" [href]="link.path" *ngFor="let link of links">
+      <span
+        >{{ link.name }}
+        <img
+          src="../../../../assets/img/icon-external-link.svg"
+          [alt]="link.name"
+          class="icon-link-external"
+      /></span>
+    </a>
+  </div>
+</div>

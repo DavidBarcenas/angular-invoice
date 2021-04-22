@@ -5,7 +5,7 @@
   height: 80px;
   background: var(--sidebar-bg);
   position: fixed;
-  z-index: 100;
+  z-index: 99;
 
   &-logo {
     display: flex;

@@ -1,0 +1,91 @@
+$gradient: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
+
+.credits {
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  z-index: 100;
+  animation: fadeIn 0.25s ease-in-out;
+
+  &.close-credits {
+    animation: fadeOut 0.25s ease-in-out;
+  }
+
+  &-mask {
+    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+
+  .credits-container {
+    position: relative;
+  }
+
+  &-logo {
+    display: inline-block;
+    border-radius: 50%;
+    width: 120px;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 300;
+    background: $gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    &:after {
+      $width: 8px;
+      content: "";
+      display: block;
+      width: $width;
+      height: $width;
+      border-radius: 50%;
+      background: $gradient;
+      margin: 0.75rem auto;
+    }
+  }
+
+  a {
+    font-family: "Spartan", serif;
+    display: block;
+    margin-bottom: 0.5rem;
+
+    .icon-link-external {
+      width: 20px;
+      height: 20px;
+      position: relative;
+      bottom: -3px;
+    }
+
+    &:hover span:before {
+      width: 100%;
+    }
+  }
+
+  span {
+    background: $gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+
+    &:before {
+      content: "";
+      display: block;
+      background: $gradient;
+      width: 0;
+      height: 1px;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      transition: width 0.2s ease-in-out;
+    }
+  }
+}

@@ -10,12 +10,22 @@ export class SidebarComponent {
   private ICON_SUN = 'icon-sun';
   private ICON_MOON = 'icon-moon';
 
+  showCredits = false;
+
   constructor(private themeService: ThemeService) {
     this.themeService.setThemeOnStart();
   }
 
-  toggleTheme(): void {
+  handleTheme(): void {
     this.themeService.toggleTheme();
+  }
+
+  handleShowCredits() {
+    this.showCredits = true;
+  }
+
+  handleCloseCredits(closeCredits: boolean) {
+    this.showCredits = closeCredits;
   }
 
   get isDarkTheme(): boolean {
