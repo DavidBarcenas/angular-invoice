@@ -1,6 +1,8 @@
 // General
 $light-purple: hsl(252, 100%, 73%);
 $dark-purple: hsl(252, 94%, 67%);
+$light-bg: hsl(0, 0%, 100%);
+$dark-bg: hsl(233, 30%, 21%);
 
 // Sidebar
 $light-sidebar-bg: hsl(231, 20%, 27%);
@@ -9,9 +11,14 @@ $dark-sidebar-bg: hsl(233, 31%, 17%);
 // Body
 $light-body-bg: hsl(240, 27%, 98%);
 $dark-body-bg: hsl(233, 30%, 11%);
-$light-body-text: #0c0e16;
-$dark-body-text: #fff;
+$light-body-text: hsl(228, 29%, 7%);
 
-// Text {
-$light-btn-text: #7e88c3;
-$dark-btn-text: #dfe3fa;
+// Button Text {
+$light-btn-text: hsl(231, 37%, 63%);
+$dark-btn-text: hsl(231, 73%, 93%);
+
+// Dropdown
+$light-dropdown-checkbox: hsl(231, 72%, 93%);
+$dark-dropdown-checkbox: hsl(233, 31%, 17%);
+$light-dropdown-shadow: rgb(71 83 158 / 25%);
+$dark-dropdown-shadow: rgb(0 0 0 / 25%);

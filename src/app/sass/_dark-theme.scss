@@ -1,6 +1,9 @@
 .dark-theme {
   --sidebar-bg: #{$dark-sidebar-bg};
+  --bg-box: #{$dark-bg};
   --body-bg: #{$dark-body-bg};
-  --body-text: #{$dark-body-text};
+  --body-text: #{$light-bg};
   --btn-text: #{$dark-btn-text};
+  --dropdown-checkbox: #{$dark-dropdown-checkbox};
+  --dropdown-shadow: #{$dark-dropdown-shadow};
 }

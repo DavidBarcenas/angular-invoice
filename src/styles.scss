@@ -29,6 +29,10 @@ img {
   display: inline-block;
 }
 
+ul {
+  list-style: none;
+}
+
 .theme-animation {
   transition: color 0.2s, background 0.3s;
 }
