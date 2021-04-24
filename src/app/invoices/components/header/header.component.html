@@ -5,16 +5,19 @@
   </div>
   <div>
     <div class="header-filter--dropdown">
-      <button class="header-btn--filter" (click)="toggleFilter()">
+      <button
+        class="header-btn--filter"
+        (click)="UiActionsService.toggleFilter()"
+      >
         <span>Filter</span>
         <img
           src="../../../../assets/img/icon-arrow-down.svg"
           alt="Icon Arrow"
           class="filter-icon-arrow"
-          [class.activeFilter]="activeFilter"
+          [class.activeFilter]="UiActionsService.openFilter"
         />
       </button>
-      <ul class="dropdown">
+      <ul class="dropdown" *ngIf="UiActionsService.openFilter">
         <li>
           <label>
             <span class="label-checkbox"></span>

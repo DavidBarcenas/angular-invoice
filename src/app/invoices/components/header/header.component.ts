@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { UiActionsService } from '../../services/ui-actions.service';
 
 @Component({
   selector: 'app-header',
@@ -6,13 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  activeFilter: boolean = false;
-
-  constructor() {}
+  constructor(public UiActionsService: UiActionsService) {}
 
   ngOnInit(): void {}
-
-  toggleFilter(): void {
-    this.activeFilter = !this.activeFilter;
-  }
 }
