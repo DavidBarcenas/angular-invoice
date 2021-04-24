@@ -5,39 +5,29 @@
   </div>
   <div>
     <div class="header-filter--dropdown">
-      <button
-        class="header-btn--filter"
-        (click)="UiActionsService.toggleFilter()"
-      >
+      <button class="header-btn--filter" (click)="filterService.toggleFilter()">
         <span>Filter</span>
         <img
           src="../../../../assets/img/icon-arrow-down.svg"
           alt="Icon Arrow"
           class="filter-icon-arrow"
-          [class.activeFilter]="UiActionsService.openFilter"
+          [class.activeFilter]="filterService.openFilter"
         />
       </button>
-      <ul class="dropdown" *ngIf="UiActionsService.openFilter">
-        <li>
-          <label>
-            <span class="label-checkbox"></span>
-            <span class="label-text">Paid</span>
-            <input type="checkbox" />
-          </label>
-        </li>
-        <li>
-          <label>
-            <span class="label-checkbox"></span>
-            <span class="label-text"> Pending</span>
-            <input type="checkbox" />
-          </label>
-        </li>
-        <li>
-          <label>
-            <span class="label-checkbox"></span>
-            <span class="label-text">Draft</span>
-            <input type="checkbox" />
-          </label>
+      <ul
+        (mouseleave)="filterService.closeFilter($event)"
+        class="dropdown"
+        *ngIf="filterService.openFilter"
+      >
+        <li
+          *ngFor="let filter of filters; let i = index"
+          (click)="toggleFilter(filter.name, i)"
+        >
+          <span
+            class="filter-checkbox"
+            [class.active-filter]="filter.checked"
+          ></span>
+          <span class="filter-text">{{ filter.name }}</span>
         </li>
       </ul>
     </div>

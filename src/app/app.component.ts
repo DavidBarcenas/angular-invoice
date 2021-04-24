@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UiActionsService } from './invoices/services/ui-actions.service';
+import { FilterService } from './invoices/services/filter.service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +7,5 @@ import { UiActionsService } from './invoices/services/ui-actions.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(public uiActionsService: UiActionsService) {}
+  constructor(public filterService: FilterService) {}
 }

@@ -1,13 +1,41 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { UiActionsService } from '../../services/ui-actions.service';
+import { Component, OnInit } from '@angular/core';
+import { FilterService } from '../../services/filter.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
-  constructor(public UiActionsService: UiActionsService) {}
+export class HeaderComponent {
+  filters: Filter[] = [
+    {
+      name: 'Paid',
+      checked: false,
+    },
+    {
+      name: 'Pending',
+      checked: false,
+    },
+    {
+      name: 'Draft',
+      checked: false,
+    },
+  ];
 
-  ngOnInit(): void {}
+  constructor(public filterService: FilterService) {}
+
+  toggleFilter(filterName: string, idx: number) {
+    this.filters[idx].checked = !this.filters[idx].checked;
+
+    this.filters.map((f) => {
+      if (f.name !== filterName) {
+        f.checked = false;
+      }
+    });
+  }
+}
+
+interface Filter {
+  name: string;
+  checked: boolean;
 }

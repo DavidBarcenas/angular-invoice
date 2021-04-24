@@ -84,35 +84,50 @@
   transform: translateX(-50%);
 
   li {
+    display: block;
     font-size: 0.75rem;
     font-weight: 700;
     margin-bottom: 0.75rem;
+    cursor: pointer;
 
     &:last-child {
       margin-bottom: 0;
     }
-
-    label {
-      display: block;
-      cursor: pointer;
-    }
-
-    input[type="checkbox"] {
-      display: none;
-    }
   }
 
-  .label-checkbox,
-  .label-text {
+  .filter-checkbox,
+  .filter-text {
     display: inline-block;
     vertical-align: text-bottom;
   }
 
-  .label-checkbox {
+  .filter-checkbox {
     background: var(--dropdown-checkbox);
     width: 15px;
     height: 15px;
     margin-right: 1rem;
+    position: relative;
+
+    &:after {
+      content: "";
+      display: block;
+      background: url(../../../../assets/img/icon-check.svg) no-repeat center;
+      background-size: 10px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+    }
+
+    &.active-filter {
+      background: var(--dark-purple);
+
+      &.filter-checkbox:after {
+        opacity: 1;
+      }
+    }
   }
 
   .label-text {
