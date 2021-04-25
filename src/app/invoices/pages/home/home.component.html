@@ -1,1 +1,16 @@
 <app-header></app-header>
+<ul class="invoice-list">
+  <li class="invoice-item" *ngFor="let invoice of invoices$ | async">
+    <div class="invoice-wrap">
+      <span class="inovice-id">{{ invoice.id }}</span>
+      <p class="inovice-client">{{ invoice.clientName }}</p>
+    </div>
+    <div class="invoice-item--wrap">
+      <div>
+        <span class="invoice-date">Due {{ invoice.createdAt }}</span>
+        <p class="invoice-total">{{ invoice.total }}</p>
+      </div>
+      <span class="inovice-status">{{ invoice.status }}</span>
+    </div>
+  </li>
+</ul>
