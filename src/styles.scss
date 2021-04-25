@@ -34,13 +34,59 @@ ul {
 }
 
 .theme-animation {
-  transition: color 0.2s, background 0.3s;
+  transition: background 0.3s, color 0.1s;
 }
 
 .flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.status-paid,
+.status-pending,
+.status-draft {
+  font-weight: 700;
+  line-height: 2.3rem;
+  text-transform: capitalize;
+  width: 105px;
+  text-align: center;
+
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: inherit;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+  }
+}
+
+.status-paid {
+  color: $status-paid;
+  background: rgba($status-paid, 0.05);
+
+  &:before {
+    background: $status-paid;
+  }
+}
+.status-pending {
+  color: $status-pending;
+  background: rgba($status-pending, 0.05);
+
+  &:before {
+    background: $status-pending;
+  }
+}
+.status-draft {
+  color: $status-draft;
+  background: rgba($status-draft, 0.05);
+
+  &:before {
+    background: $status-draft;
+  }
 }
 
 @keyframes fadeIn {
