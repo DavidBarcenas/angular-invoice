@@ -10,7 +10,6 @@ body {
   font-family: "Spartan", sans-serif;
   background: var(--body-bg);
   color: var(--body-text);
-  padding-top: 80px;
   width: 100vw;
   min-height: 100vh;
 }
@@ -33,6 +32,12 @@ img {
 
 ul {
   list-style: none;
+}
+
+.container {
+  padding-top: 80px;
+  min-height: 100vh;
+  padding-bottom: 40px;
 }
 
 .theme-animation {

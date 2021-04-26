@@ -27,6 +27,12 @@ export class HeaderComponent {
   toggleFilter(filterName: string, idx: number) {
     this.filters[idx].checked = !this.filters[idx].checked;
 
+    if (this.filters[idx].checked) {
+      this.filterService.activeFilter.emit(filterName);
+    } else {
+      this.filterService.activeFilter.emit(null);
+    }
+
     this.filters.map((f) => {
       if (f.name !== filterName) {
         f.checked = false;
