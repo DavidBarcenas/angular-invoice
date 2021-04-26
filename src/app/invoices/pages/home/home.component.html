@@ -1,24 +1,2 @@
 <app-header></app-header>
-<ul class="invoice-list">
-  <li
-    class="invoice-item theme-animation"
-    *ngFor="let invoice of invoices$ | async; let i = index"
-    [ngStyle]="{ 'animation-delay': i + 's' }"
-  >
-    <div class="invoice-wrap">
-      <span class="inovice-id">{{ invoice.id }}</span>
-      <p class="inovice-client">{{ invoice.clientName }}</p>
-    </div>
-    <div class="invoice-wrap">
-      <div>
-        <span class="invoice-date"
-          >Due {{ invoice.createdAt | date: "dd MMM yyyy" }}</span
-        >
-        <p class="invoice-total">£{{ invoice.total | number }}</p>
-      </div>
-      <span class="inovice-status" [ngClass]="'status-' + invoice.status">{{
-        invoice.status
-      }}</span>
-    </div>
-  </li>
-</ul>
+<app-invoice-list [invoices]="invoices$"></app-invoice-list>

@@ -11,6 +11,8 @@ body {
   background: var(--body-bg);
   color: var(--body-text);
   padding-top: 80px;
+  width: 100vw;
+  min-height: 100vh;
 }
 
 button {

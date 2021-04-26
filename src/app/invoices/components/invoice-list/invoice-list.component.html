@@ -1,0 +1,7 @@
+<ul class="invoice-list">
+  <app-invoice-item
+    *ngFor="let invoice of invoices | async; let i = index"
+    [invoice]="invoice"
+    [idx]="i"
+  ></app-invoice-item>
+</ul>
