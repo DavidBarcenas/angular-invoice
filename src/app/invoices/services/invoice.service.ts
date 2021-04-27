@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
+import { Invoice } from '../interfaces/invoice.interface';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Invoice } from '../interfaces/invoice.interface';
 
 @Injectable({
   providedIn: 'root',

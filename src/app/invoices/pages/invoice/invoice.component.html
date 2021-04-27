@@ -1,1 +1,84 @@
-<p>invoice works!</p>
+<section class="invoice" *ngIf="invoice">
+  <button class="go-back">
+    <img src="../../../../assets/img/icon-arrow-left.svg" alt="go back" />
+    <span>Go back</span>
+  </button>
+
+  <div class="invoice-status">
+    <p>Status</p>
+    <span>{{ invoice.status }}</span>
+  </div>
+
+  <div class="invoice-wrap">
+    <div class="invoice-header">
+      <div class="invoice-header--left">
+        <span>{{ invoice.id }}</span>
+        <p>{{ invoice.description }}</p>
+      </div>
+
+      <address class="invoice-header--right">
+        <p>{{ invoice.senderAddress.street }}</p>
+        <p>{{ invoice.senderAddress.city }}</p>
+        <p>{{ invoice.senderAddress.postCode }}</p>
+        <p>{{ invoice.senderAddress.country }}</p>
+      </address>
+
+      <div class="invoice-body">
+        <div>
+          <div>
+            <span>Invoice Date</span>
+            <p>{{ invoice.createdAt }}</p>
+          </div>
+          <div>
+            <span>Payment Due</span>
+            <p>{{ invoice.paymentDue }}</p>
+          </div>
+        </div>
+
+        <div>
+          <span>Bill To</span>
+          <h2>{{ invoice.clientName }}</h2>
+          <p>{{ invoice.clientAddress.street }}</p>
+          <p>{{ invoice.clientAddress.city }}</p>
+          <p>{{ invoice.clientAddress.postCode }}</p>
+          <p>{{ invoice.clientAddress.country }}</p>
+        </div>
+
+        <div>
+          <span>Send to</span>
+          <p>{{ invoice.clientEmail }}</p>
+        </div>
+      </div>
+
+      <div class="invoice-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Item Name</th>
+              <th>QTY.</th>
+              <th>Price</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of invoice.items">
+              <td>{{ item.name }}</td>
+              <td>{{ item.quantity }}</td>
+              <td>{{ item.price }}</td>
+              <td>{{ item.total }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="invoice-total">
+        <span>Amount Due</span>
+        <span class="invoice-total-amout">£{{ invoice.total }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="invoice-actions">
+    <button>Edit</button>
+    <button>Delete</button>
+  </div>
+</section>

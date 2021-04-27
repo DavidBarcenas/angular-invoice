@@ -21,6 +21,7 @@ export class InvoiceComponent implements OnInit {
     this.activatedRoute.params
       .pipe(switchMap(({ id }) => this.invoiceService.getInvoice(id)))
       .subscribe((invoice) => {
+        console.log(invoice);
         this.invoice = invoice;
       });
   }
