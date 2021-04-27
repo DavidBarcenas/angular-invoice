@@ -10,6 +10,7 @@ import { InvoiceService } from '../../services/invoice.service';
 })
 export class HomeComponent implements OnInit {
   invoices$: Observable<Invoice[]>;
+
   constructor(private invoicesService: InvoiceService) {}
 
   ngOnInit(): void {

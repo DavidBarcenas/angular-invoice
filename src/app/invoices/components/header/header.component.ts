@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FilterService } from '../../services/filter.service';
 
 @Component({
@@ -24,7 +24,7 @@ export class HeaderComponent {
 
   constructor(public filterService: FilterService) {}
 
-  toggleFilter(filterName: string, idx: number) {
+  toggleFilter(filterName: string, idx: number): void {
     this.filters[idx].checked = !this.filters[idx].checked;
 
     if (this.filters[idx].checked) {

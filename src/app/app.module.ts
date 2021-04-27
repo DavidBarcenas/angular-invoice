@@ -10,6 +10,7 @@ import { HeaderComponent } from './invoices/components/header/header.component';
 import { InvoiceListComponent } from './invoices/components/invoice-list/invoice-list.component';
 import { InvoiceItemComponent } from './invoices/components/invoice-item/invoice-item.component';
 import { FilterPipe } from './invoices/pipes/filter.pipe';
+import { InvoiceComponent } from './invoices/pages/invoice/invoice.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FilterPipe } from './invoices/pipes/filter.pipe';
     InvoiceListComponent,
     InvoiceItemComponent,
     FilterPipe,
+    InvoiceComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   bootstrap: [AppComponent],

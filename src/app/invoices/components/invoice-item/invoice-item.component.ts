@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Invoice } from '../../interfaces/invoice.interface';
 
 @Component({
@@ -6,11 +6,7 @@ import { Invoice } from '../../interfaces/invoice.interface';
   templateUrl: './invoice-item.component.html',
   styleUrls: ['./invoice-item.component.scss'],
 })
-export class InvoiceItemComponent implements OnInit {
+export class InvoiceItemComponent {
   @Input() invoice: Invoice;
   @Input() idx: number;
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }
