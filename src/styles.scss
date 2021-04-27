@@ -44,10 +44,19 @@ ul {
   transition: background 0.3s, color 0.1s;
 }
 
-.flex-center {
+.flex-center,
+.flex-between {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+.flex-center {
   justify-content: center;
+}
+
+.flex-between {
+  justify-content: space-between;
 }
 
 .status-paid,

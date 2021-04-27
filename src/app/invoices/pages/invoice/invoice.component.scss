@@ -1,0 +1,96 @@
+.go-back {
+  margin: 2rem 0;
+
+  span {
+    display: inline-block;
+    font-size: 0.75rem;
+    margin-left: 1.5rem;
+  }
+}
+
+.invoice-status,
+.invoice-wrap {
+  background: var(--bg-box);
+  box-shadow: rgb(72 84 159 / 10%) 0px 10px 10px -10px;
+  font-size: 0.75rem;
+  padding: 1.5rem;
+}
+
+.invoice-status {
+  margin-bottom: 1.5rem;
+}
+
+.invoice-header {
+  margin-bottom: 2.5rem;
+
+  &--left {
+    span {
+      display: inline-block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+
+      &:before {
+        content: "#";
+        color: hsl(231, 37%, 63%);
+      }
+
+      p {
+        color: var(--btn-text);
+      }
+    }
+  }
+
+  &--right {
+    font-style: normal;
+    text-align: right;
+
+    p {
+      color: var(--btn-text);
+      margin-bottom: 0.3rem;
+    }
+  }
+}
+
+.invoice-body {
+  align-items: flex-start;
+
+  .date-wrap,
+  .bill-to,
+  .send-to {
+    width: 30%;
+    span {
+      color: var(--btn-text);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+  }
+
+  .date {
+    margin-bottom: 2.5rem;
+
+    p {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+  }
+
+  .bill-to {
+    h2 {
+      margin: 0.75rem 0 0.5rem;
+      font-size: 0.95rem;
+    }
+    p {
+      color: var(--btn-text);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+  }
+
+  .send-to {
+    p {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+  }
+}

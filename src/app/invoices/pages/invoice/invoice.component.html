@@ -4,13 +4,13 @@
     <span>Go back</span>
   </button>
 
-  <div class="invoice-status">
+  <div class="invoice-status flex-between">
     <p>Status</p>
-    <span>{{ invoice.status }}</span>
+    <span [ngClass]="'status-' + invoice.status">{{ invoice.status }}</span>
   </div>
 
   <div class="invoice-wrap">
-    <div class="invoice-header">
+    <div class="invoice-header flex-between">
       <div class="invoice-header--left">
         <span>{{ invoice.id }}</span>
         <p>{{ invoice.description }}</p>
@@ -22,58 +22,59 @@
         <p>{{ invoice.senderAddress.postCode }}</p>
         <p>{{ invoice.senderAddress.country }}</p>
       </address>
+    </div>
 
-      <div class="invoice-body">
-        <div>
-          <div>
-            <span>Invoice Date</span>
-            <p>{{ invoice.createdAt }}</p>
-          </div>
-          <div>
-            <span>Payment Due</span>
-            <p>{{ invoice.paymentDue }}</p>
-          </div>
+    <div class="invoice-body flex-between">
+      <div class="date-wrap">
+        <div class="date">
+          <span>Invoice Date</span>
+          <p>{{ invoice.createdAt | date: "dd MMM yyyy" }}</p>
         </div>
-
-        <div>
-          <span>Bill To</span>
-          <h2>{{ invoice.clientName }}</h2>
-          <p>{{ invoice.clientAddress.street }}</p>
-          <p>{{ invoice.clientAddress.city }}</p>
-          <p>{{ invoice.clientAddress.postCode }}</p>
-          <p>{{ invoice.clientAddress.country }}</p>
-        </div>
-
-        <div>
-          <span>Send to</span>
-          <p>{{ invoice.clientEmail }}</p>
+        <div class="date">
+          <span>Payment Due</span>
+          <p>{{ invoice.paymentDue | date: "dd MMM yyyy" }}</p>
         </div>
       </div>
 
-      <div class="invoice-table">
-        <table>
-          <thead>
-            <tr>
-              <th>Item Name</th>
-              <th>QTY.</th>
-              <th>Price</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of invoice.items">
-              <td>{{ item.name }}</td>
-              <td>{{ item.quantity }}</td>
-              <td>{{ item.price }}</td>
-              <td>{{ item.total }}</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="bill-to">
+        <span>Bill To</span>
+        <h2>{{ invoice.clientName }}</h2>
+        <p>{{ invoice.clientAddress.street }}</p>
+        <p>{{ invoice.clientAddress.city }}</p>
+        <p>{{ invoice.clientAddress.postCode }}</p>
+        <p>{{ invoice.clientAddress.country }}</p>
       </div>
-      <div class="invoice-total">
-        <span>Amount Due</span>
-        <span class="invoice-total-amout">£{{ invoice.total }}</span>
+
+      <div class="send-to">
+        <span>Send to</span>
+        <p>{{ invoice.clientEmail }}</p>
       </div>
+    </div>
+
+    <div class="invoice-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>QTY.</th>
+            <th>Price</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of invoice.items">
+            <td>{{ item.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.price }}</td>
+            <td>{{ item.total }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="invoice-total">
+      <span>Amount Due</span>
+      <span class="invoice-total-amout">£{{ invoice.total }}</span>
     </div>
   </div>
 
