@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Invoice } from '../interfaces/invoice.interface';
 
 @Injectable({
@@ -9,7 +10,17 @@ import { Invoice } from '../interfaces/invoice.interface';
 export class InvoiceService {
   constructor(private http: HttpClient) {}
 
-  getInvoices(): Observable<Invoice[]> {
+  getInvoices(): Observable<any[]> {
     return this.http.get<Invoice[]>('./assets/data/data.json');
+  }
+
+  getInvoice(id: string): Observable<Invoice> {
+    return this.http.get<Invoice[]>('./assets/data/data.json').pipe(
+      map((arr) => {
+        return arr.find((invoice) => {
+          return invoice.id === id;
+        });
+      })
+    );
   }
 }
