@@ -4,12 +4,12 @@
     <span>Go back</span>
   </button>
 
-  <div class="invoice-status flex-between">
+  <div class="invoice-status flex-between theme-animation">
     <p>Status</p>
     <span [ngClass]="'status-' + invoice.status">{{ invoice.status }}</span>
   </div>
 
-  <div class="invoice-wrap">
+  <div class="invoice-wrap theme-animation">
     <div class="invoice-header flex-between">
       <div class="invoice-header--left">
         <span>{{ invoice.id }}</span>
@@ -51,35 +51,35 @@
       </div>
     </div>
 
-    <div class="invoice-table">
+    <div class="invoice-table theme-animation">
       <table>
         <thead>
           <tr>
             <th>Item Name</th>
-            <th>QTY.</th>
-            <th>Price</th>
-            <th>Total</th>
+            <th class="text-center">QTY.</th>
+            <th class="text-right">Price</th>
+            <th class="text-right">Total</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let item of invoice.items">
             <td>{{ item.name }}</td>
-            <td>{{ item.quantity }}</td>
-            <td>{{ item.price }}</td>
-            <td>{{ item.total }}</td>
+            <td class="text-center">{{ item.quantity }}</td>
+            <td class="text-right">£{{ item.price }}</td>
+            <td class="text-right">£{{ item.total }}</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <div class="invoice-total">
+    <div class="invoice-total flex-between">
       <span>Amount Due</span>
       <span class="invoice-total-amout">£{{ invoice.total }}</span>
     </div>
   </div>
 
   <div class="invoice-actions">
-    <button>Edit</button>
-    <button>Delete</button>
+    <button class="btn">Edit</button>
+    <button class="btn btn-delete">Delete</button>
   </div>
 </section>
