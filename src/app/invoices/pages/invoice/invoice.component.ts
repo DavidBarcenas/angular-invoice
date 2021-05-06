@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Invoice } from '../../interfaces/invoice.interface';
 import { InvoiceService } from '../../services/invoice.service';
 import { switchMap } from 'rxjs/operators';
+import { ModalService } from 'src/app/shared/services/modal.service';
 
 @Component({
   selector: 'app-invoice',
@@ -14,7 +15,8 @@ export class InvoiceComponent implements OnInit {
 
   constructor(
     private invoiceService: InvoiceService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private modalService: ModalService
   ) {}
 
   ngOnInit(): void {
@@ -24,5 +26,9 @@ export class InvoiceComponent implements OnInit {
         console.log(invoice);
         this.invoice = invoice;
       });
+  }
+
+  openModal() {
+    this.modalService.open();
   }
 }

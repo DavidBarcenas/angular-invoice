@@ -8,6 +8,10 @@
   }
 }
 
+.invoice {
+  animation: fadeIn 1s ease-in-out;
+}
+
 .invoice-status,
 .invoice-wrap {
   background: var(--invoice-bg);

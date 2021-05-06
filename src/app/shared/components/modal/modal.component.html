@@ -1,0 +1,10 @@
+<div
+  class="modal flex-center"
+  [class.close-modal]="animationCloseModal"
+  *ngIf="openModal"
+>
+  <div class="modal-backdrop" (click)="closeModal()"></div>
+  <div class="modal-wrap" [class.close-wrap]="animationCloseModal">
+    <ng-content></ng-content>
+  </div>
+</div>

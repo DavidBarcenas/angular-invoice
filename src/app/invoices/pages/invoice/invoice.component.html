@@ -1,5 +1,5 @@
 <section class="invoice" *ngIf="invoice">
-  <button class="go-back">
+  <button class="go-back" routerLink="/">
     <img src="../../../../assets/img/icon-arrow-left.svg" alt="go back" />
     <span>Go back</span>
   </button>
@@ -80,6 +80,10 @@
 
   <div class="invoice-actions">
     <button class="btn">Edit</button>
-    <button class="btn btn-delete">Delete</button>
+    <button class="btn btn-delete" (click)="openModal()">Delete</button>
   </div>
 </section>
+
+<app-modal>
+  <h1>Modal Title</h1>
+</app-modal>

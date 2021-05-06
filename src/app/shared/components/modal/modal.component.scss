@@ -1,0 +1,37 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(#000, 0.5);
+  z-index: 120;
+  animation: fadeIn 0.2s ease-in-out;
+
+  .modal-backdrop {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+  }
+
+  &-wrap {
+    background: var(--invoice-bg);
+    margin: 0 1.5rem;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 24rem;
+    width: 100%;
+    transform: scale(0);
+    animation: bounceIn 0.2s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  &.close-modal {
+    animation: fadeOut 0.3s ease;
+  }
+
+  .close-wrap {
+    animation: bounceOut 0.2s ease-in-out;
+  }
+}
