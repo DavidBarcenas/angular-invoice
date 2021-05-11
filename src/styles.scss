@@ -10,8 +10,9 @@ body {
   font-family: "Spartan", sans-serif;
   background: var(--body-bg);
   color: var(--body-text);
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 button {
@@ -89,18 +90,18 @@ ul {
 }
 .status-pending {
   color: $status-pending;
-  background: rgba($status-pending, 0.05);
+  background: rgba(var(--$status-pending), 0.05);
 
   &:before {
     background: $status-pending;
   }
 }
 .status-draft {
-  color: $status-draft;
-  background: rgba($status-draft, 0.05);
+  color: rgba(var(--status-draft), 1);
+  background: rgba(var(--status-draft), 0.05);
 
   &:before {
-    background: $status-draft;
+    background: rgba(var(--status-draft), 1);
   }
 }
 

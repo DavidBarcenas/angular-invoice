@@ -2,10 +2,13 @@
 $light-purple: hsl(252, 100%, 73%);
 $dark-purple: hsl(252, 94%, 67%);
 $light-bg: hsl(0, 0%, 100%);
-$dark-bg: hsl(233, 30%, 21%);
-$status-paid: #33d69f;
-$status-pending: #ff8f00;
-$status-draft: #373b53;
+$dark-bg: hsl(233, 31%, 21%);
+$status-paid: hsl(160, 67%, 52%);
+$status-pending: hsl(34, 100%, 50%);
+
+// Status-draft
+$light-status-draft: hsl(231, 20%, 27%);
+$dark-status-draft: hsl(231, 73%, 93%);
 
 // Sidebar
 $light-sidebar-bg: hsl(231, 20%, 27%);
@@ -28,3 +31,8 @@ $dark-dropdown-shadow: rgb(0 0 0 / 25%);
 
 // Table
 $light-table-bg: hsl(228, 71%, 99%);
+
+// Convert the value of a hexadecimal variable to RGB
+@function hexToRGB($hex) {
+  @return red($hex), green($hex), blue($hex);
+}

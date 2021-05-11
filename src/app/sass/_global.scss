@@ -13,4 +13,5 @@
   --btn-bg: #{$light-table-bg};
   --actions-bg: #{$light-bg};
   --total-amout-bg: #{$light-sidebar-bg};
+  --status-draft: #{hexToRGB($light-status-draft)};
 }

@@ -1,6 +1,6 @@
 .dark-theme {
   --sidebar-bg: #{$dark-sidebar-bg};
-  --bg-box: #{$dark-bg};
+  --bg-box: #{$dark-sidebar-bg};
   --body-bg: #{$dark-body-bg};
   --body-text: #{$light-bg};
   --btn-text: #{$dark-btn-text};
@@ -11,4 +11,5 @@
   --btn-bg: #{$dark-bg};
   --actions-bg: #{$dark-sidebar-bg};
   --total-amout-bg: #{$light-body-text};
+  --status-draft: #{hexToRGB($dark-status-draft)};
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Invoice } from '../../interfaces/invoice.interface';
 import { InvoiceService } from '../../services/invoice.service';
 import { switchMap } from 'rxjs/operators';
@@ -16,19 +16,27 @@ export class InvoiceComponent implements OnInit {
   constructor(
     private invoiceService: InvoiceService,
     private activatedRoute: ActivatedRoute,
-    private modalService: ModalService
+    private modalService: ModalService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.activatedRoute.params
       .pipe(switchMap(({ id }) => this.invoiceService.getInvoice(id)))
-      .subscribe((invoice) => {
-        console.log(invoice);
-        this.invoice = invoice;
-      });
+      .subscribe((invoice) => (this.invoice = invoice));
   }
 
-  openModal() {
+  openModal(): void {
     this.modalService.open();
+  }
+
+  closeModal(): void {
+    this.modalService.close();
+  }
+
+  handleDelete() {
+    // TODO: remove invoice from database
+    this.modalService.close();
+    this.router.navigate(['/']);
   }
 }

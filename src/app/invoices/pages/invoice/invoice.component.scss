@@ -186,3 +186,22 @@
     margin-left: 0.5rem;
   }
 }
+
+.modal-invoice-delete {
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    color: var(--btn-text);
+    font-size: 0.75rem;
+    line-height: 1.5rem;
+    margin: 1rem 0 1.5rem;
+  }
+
+  .invoice-actions {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+}
