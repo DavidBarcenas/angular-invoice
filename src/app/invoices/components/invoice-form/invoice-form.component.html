@@ -1,0 +1,18 @@
+<section
+  class="invoice-form"
+  *ngIf="filterService.openForm"
+  [class.close-form]="filterService.animationCloseForm"
+>
+  <div class="invoice-form-overlay"></div>
+  <div class="invoice-form-wrap">
+    <h1>Create Invoice</h1>
+
+    <div class="invoice-form-container">
+      <form></form>
+    </div>
+  </div>
+
+  <div class="invoice-form-actions">
+    <button (click)="filterService.closeForm()">close</button>
+  </div>
+</section>

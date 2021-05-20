@@ -12,6 +12,7 @@ import { InvoiceItemComponent } from './invoices/components/invoice-item/invoice
 import { FilterPipe } from './invoices/pipes/filter.pipe';
 import { InvoiceComponent } from './invoices/pages/invoice/invoice.component';
 import { ModalComponent } from './shared/components/modal/modal.component';
+import { InvoiceFormComponent } from './invoices/components/invoice-form/invoice-form.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ModalComponent } from './shared/components/modal/modal.component';
     FilterPipe,
     InvoiceComponent,
     ModalComponent,
+    InvoiceFormComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   bootstrap: [AppComponent],

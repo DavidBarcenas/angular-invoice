@@ -6,6 +6,8 @@ import { EventEmitter, Injectable } from '@angular/core';
 export class FilterService {
   openFilter: boolean = false;
   activeFilter: EventEmitter<string> = new EventEmitter();
+  openForm: boolean = false;
+  animationCloseForm = false;
 
   toggleFilter(): void {
     this.openFilter = !this.openFilter;
@@ -20,5 +22,17 @@ export class FilterService {
     ) {
       this.openFilter = false;
     }
+  }
+
+  toggleForm() {
+    this.openForm = !this.openForm;
+  }
+
+  closeForm() {
+    this.animationCloseForm = true;
+    setTimeout(() => {
+      this.openForm = false;
+      this.animationCloseForm = false;
+    }, 200);
   }
 }
