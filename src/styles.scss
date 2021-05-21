@@ -167,3 +167,18 @@ ul {
     transform: scale(0);
   }
 }
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  75% {
+    transform: translateX(4%);
+  }
+  90% {
+    transform: translateX(2%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
