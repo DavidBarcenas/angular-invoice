@@ -115,6 +115,7 @@ ul {
   padding: 0 1.5rem;
   min-width: 90px;
   cursor: pointer;
+  transition: color 0.3s ease 0s, border 0.3s ease 0s, background 0.3s ease 0s;
 
   &-delete {
     background: hsl(0, 80%, 63%);

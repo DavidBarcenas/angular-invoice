@@ -1,105 +1,102 @@
 <!-- *ngIf="filterService.openForm" -->
 <section
-  class="invoice-form"
+  class="invoice-form theme-animation"
   [class.close-form]="filterService.animationCloseForm"
 >
-  <div class="invoice-form-overlay"></div>
-  <div class="invoice-form-wrap">
-    <div class="form-header">
-      <h2>Create Invoice</h2>
-    </div>
-    <div class="form-body">
-      <form>
-        <div class="form-section">
-          <span>Bill From</span>
-          <div class="form-control">
-            <label for="street">Street Address</label>
-            <input type="text" id="street" />
-          </div>
-          <div class="form-control">
-            <label for="city">City</label>
-            <input type="text" id="city" />
-          </div>
-          <div class="form-control">
-            <label for="code">Post Code</label>
-            <input type="text" id="code" />
-          </div>
-          <div class="form-control">
-            <label for="country">Country</label>
-            <input type="text" id="country" />
-          </div>
+  <h2>Create Invoice</h2>
+
+  <div class="form-wrap">
+    <form>
+      <fieldset class="form-section">
+        <legend>Bill From</legend>
+
+        <div class="form-control">
+          <label for="street">Street Address</label>
+          <input type="text" id="street" />
         </div>
-        <div class="form-section">
-          <span>Bill To</span>
-          <div class="form-control">
-            <label for="name">Client's Name</label>
-            <input type="text" id="name" />
-          </div>
-          <div class="form-control">
-            <label for="email">Client's Email</label>
-            <input type="text" id="email" />
-          </div>
-          <div class="form-control">
-            <label for="street-to">Street Address</label>
-            <input type="text" id="street-to" />
-          </div>
-          <div class="form-control">
-            <label for="city-to">City</label>
-            <input type="text" id="city-to" />
-          </div>
-          <div class="form-control">
-            <label for="code-to">Post Code</label>
-            <input type="text" id="code-to" />
-          </div>
-          <div class="form-control">
-            <label for="country-to">Country</label>
-            <input type="text" id="country-to" />
-          </div>
-          <div class="form-control">
-            <label for="invoice-date">Invoice Date</label>
-            <input type="text" id="invoice-date" />
-          </div>
-          <div class="form-control">
-            <label for="payment-terms">Payment Terms</label>
-            <select id="payment-terms"></select>
-          </div>
-          <div class="form-control">
-            <label for="description">Description</label>
-            <input type="text" id="description" />
-          </div>
+        <div class="form-control">
+          <label for="city">City</label>
+          <input type="text" id="city" />
         </div>
-        <div class="form-section">
-          <h3>ItemList</h3>
-          <button>+ Add New Item</button>
-          <div class="form-control">
-            <label for="item-name">Item Name</label>
-            <input type="text" id="item-name" />
-          </div>
-          <div class="form-control">
-            <label for="qty">Qty.</label>
-            <input type="number" id="qty" />
-          </div>
-          <div class="form-control">
-            <label for="price">Price</label>
-            <input type="text" id="price" />
-          </div>
-          <div class="form-control">
-            <label for="total">Total</label>
-            <input type="number" id="total" value="0" readonly />
-          </div>
+        <div class="form-control">
+          <label for="code">Post Code</label>
+          <input type="text" id="code" />
         </div>
-      </form>
-    </div>
-    <div class="form-footer">
-      <button>Discard</button>
-      <div>
-        <button>Save as Draft</button>
-        <button>Save & Send</button>
+        <div class="form-control">
+          <label for="country">Country</label>
+          <input type="text" id="country" />
+        </div>
+      </fieldset>
+
+      <fieldset class="form-section">
+        <legend>Bill To</legend>
+
+        <div class="form-control">
+          <label for="name">Client's Name</label>
+          <input type="text" id="name" />
+        </div>
+        <div class="form-control">
+          <label for="email">Client's Email</label>
+          <input type="text" id="email" />
+        </div>
+        <div class="form-control">
+          <label for="street-to">Street Address</label>
+          <input type="text" id="street-to" />
+        </div>
+        <div class="form-control">
+          <label for="city-to">City</label>
+          <input type="text" id="city-to" />
+        </div>
+        <div class="form-control">
+          <label for="code-to">Post Code</label>
+          <input type="text" id="code-to" />
+        </div>
+        <div class="form-control">
+          <label for="country-to">Country</label>
+          <input type="text" id="country-to" />
+        </div>
+        <div class="form-control">
+          <label for="invoice-date">Invoice Date</label>
+          <input type="text" id="invoice-date" />
+        </div>
+        <div class="form-control">
+          <label for="payment-terms">Payment Terms</label>
+          <select id="payment-terms"></select>
+        </div>
+        <div class="form-control">
+          <label for="description">Description</label>
+          <input type="text" id="description" />
+        </div>
+      </fieldset>
+
+      <div class="form-section">
+        <h3>ItemList</h3>
+        <button>+ Add New Item</button>
+        <div class="form-control">
+          <label for="item-name">Item Name</label>
+          <input type="text" id="item-name" />
+        </div>
+        <div class="form-control">
+          <label for="qty">Qty.</label>
+          <input type="number" id="qty" />
+        </div>
+        <div class="form-control">
+          <label for="price">Price</label>
+          <input type="text" id="price" />
+        </div>
+        <div class="form-control">
+          <label for="total">Total</label>
+          <input type="number" id="total" value="0" readonly />
+        </div>
       </div>
-    </div>
+    </form>
   </div>
 
-  <div class="invoice-form-actions">
-    <button (click)="filterService.closeForm()">close</button>
+  <div class="invoice-form-actions flex-between">
+    <button class="btn" (click)="filterService.closeForm()">Discard</button>
+    <div>
+      <button class="btn">Save as Draft</button>
+      <button class="btn">Save & Send</button>
+    </div>
   </div>
 </section>
