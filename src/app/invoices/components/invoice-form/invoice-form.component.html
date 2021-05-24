@@ -7,88 +7,108 @@
 
   <div class="form-wrap">
     <form>
-      <fieldset class="form-section">
+      <fieldset>
         <legend>Bill From</legend>
 
-        <div class="form-control">
-          <label for="street">Street Address</label>
-          <input type="text" id="street" />
-        </div>
-        <div class="form-control">
-          <label for="city">City</label>
-          <input type="text" id="city" />
-        </div>
-        <div class="form-control">
-          <label for="code">Post Code</label>
-          <input type="text" id="code" />
-        </div>
-        <div class="form-control">
-          <label for="country">Country</label>
-          <input type="text" id="country" />
+        <div class="form-section bill-from">
+          <div class="form-control">
+            <label for="street">Street Address*</label>
+            <input type="text" id="street" />
+          </div>
+          <div class="form-control">
+            <label for="city">City</label>
+            <input type="text" id="city" />
+          </div>
+          <div class="form-control">
+            <label for="code">Post Code</label>
+            <input type="text" id="code" />
+          </div>
+          <div class="form-control">
+            <label for="country">Country</label>
+            <input type="text" id="country" />
+          </div>
         </div>
       </fieldset>
 
-      <fieldset class="form-section">
+      <fieldset>
         <legend>Bill To</legend>
 
-        <div class="form-control">
-          <label for="name">Client's Name</label>
-          <input type="text" id="name" />
-        </div>
-        <div class="form-control">
-          <label for="email">Client's Email</label>
-          <input type="text" id="email" />
-        </div>
-        <div class="form-control">
-          <label for="street-to">Street Address</label>
-          <input type="text" id="street-to" />
-        </div>
-        <div class="form-control">
-          <label for="city-to">City</label>
-          <input type="text" id="city-to" />
-        </div>
-        <div class="form-control">
-          <label for="code-to">Post Code</label>
-          <input type="text" id="code-to" />
-        </div>
-        <div class="form-control">
-          <label for="country-to">Country</label>
-          <input type="text" id="country-to" />
-        </div>
-        <div class="form-control">
-          <label for="invoice-date">Invoice Date</label>
-          <input type="text" id="invoice-date" />
-        </div>
-        <div class="form-control">
-          <label for="payment-terms">Payment Terms</label>
-          <select id="payment-terms"></select>
-        </div>
-        <div class="form-control">
-          <label for="description">Description</label>
-          <input type="text" id="description" />
+        <div class="form-section bill-to">
+          <div class="form-control">
+            <label for="name">Client's Name</label>
+            <input type="text" id="name" />
+          </div>
+          <div class="form-control">
+            <label for="email">Client's Email</label>
+            <input type="text" id="email" />
+          </div>
+          <div class="form-control">
+            <label for="street-to">Street Address</label>
+            <input type="text" id="street-to" />
+          </div>
+          <div class="form-control">
+            <label for="city-to">City</label>
+            <input type="text" id="city-to" />
+          </div>
+          <div class="form-control">
+            <label for="code-to">Post Code</label>
+            <input type="text" id="code-to" />
+          </div>
+          <div class="form-control">
+            <label for="country-to">Country</label>
+            <input type="text" id="country-to" />
+          </div>
+        </div>        
+      </fieldset>
+      
+      <fieldset>
+        <div class="form-section bill-date">
+          <div class="form-control">
+            <label for="invoice-date">Invoice Date</label>
+            <input type="text" id="invoice-date" />
+          </div>
+          <div class="form-control">
+            <label for="payment-terms">Payment Terms</label>
+            <select id="payment-terms">
+              <option value="">One</option>
+              <option value="">One</option>
+              <option value="">One</option>
+            </select>
+          </div>
+          <div class="form-control">
+            <label for="description">Description</label>
+            <input type="text" id="description" />
+          </div>
         </div>
       </fieldset>
 
-      <div class="form-section">
+      <fieldset class="add-items">
         <h3>ItemList</h3>
-        <button>+ Add New Item</button>
-        <div class="form-control">
-          <label for="item-name">Item Name</label>
-          <input type="text" id="item-name" />
+
+        <div class="form-section">
+          <div class="form-control">
+            <label for="item-name">Item Name</label>
+            <input type="text" id="item-name" />
+          </div>
+          <div class="form-control">
+            <label for="qty">Qty.</label>
+            <input type="number" id="qty" />
+          </div>
+          <div class="form-control">
+            <label for="price">Price</label>
+            <input type="text" id="price" />
+          </div>
+          <div class="form-control">
+            <label for="total">Total</label>
+            <input type="number" id="total" value="0" readonly />
+          </div>  
+          <div class="form-control flex-center">
+            <button><svg width="13" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M11.583 3.556v10.666c0 .982-.795 1.778-1.777 1.778H2.694a1.777 1.777 0 01-1.777-1.778V3.556h10.666zM8.473 0l.888.889h3.111v1.778H.028V.889h3.11L4.029 0h4.444z" fill-rule="nonzero"></path></svg></button>
+          </div>
         </div>
-        <div class="form-control">
-          <label for="qty">Qty.</label>
-          <input type="number" id="qty" />
-        </div>
-        <div class="form-control">
-          <label for="price">Price</label>
-          <input type="text" id="price" />
-        </div>
-        <div class="form-control">
-          <label for="total">Total</label>
-          <input type="number" id="total" value="0" readonly />
-        </div>
-      </div>
+      </fieldset>
+
+      <button class="btn btn-add-items">+ Add New Item</button>
     </form>
   </div>
 
