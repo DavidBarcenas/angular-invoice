@@ -35,11 +35,6 @@ ul {
   list-style: none;
 }
 
-.container {
-  padding-top: 80px;
-  min-height: 100vh;
-}
-
 .theme-animation {
   transition: background 0.3s ease 0s;
 }
@@ -75,7 +70,7 @@ ul {
     height: 0.5rem;
     border-radius: 50%;
     background: inherit;
-    margin-right: 0.5rem;
+    margin-right: 0.3rem;
   }
 }
 

@@ -1,28 +1,19 @@
 @import "mq";
 
 .invoice-form {
-  display: grid;
-  grid-template-rows: min-content 1fr min-content;
   position: fixed;
   top: 80px;
   left: 0;
-  width: 100%;
-  max-width: 40rem;
   height: calc(100vh - 80px);
   border-radius: 0 2rem 2rem 0;
   background: var(--bg-form);
-  z-index: 99;
+  z-index: 95;
   animation: slideIn 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
-  padding: 2rem 1rem 0 1.5rem;
 
-  @include mq(xs) {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-  }
-
-  @include mq(md) {
-    padding-left: 3.5rem;
-    padding-top: 3rem;
+  @include mq(lg) {
+    top: 0;
+    height: 100vh;
+    padding-left: 6.5rem;
   }
 
   &.close-form {
@@ -30,15 +21,32 @@
     transition: transform 0.3s ease;
   }
 
-  &-invoice-form-wrap {
+  .form-wrap {
     display: grid;
     grid-template-rows: min-content 1fr min-content;
     height: 100%;
+    width: 100%;
+    max-width: 40rem;
+    padding: 2rem 1rem 0px 1.5rem;
+
+    @include mq(xs) {
+      padding: 2.5rem 2rem 0px 2.5rem;
+    }
+
+    @include mq(600px) {
+      padding: 3.5rem 2rem 0px 3.5rem;
+    }
   }
 
   h2 {
     margin-bottom: 3rem;
     letter-spacing: -0.5px;
+  }
+
+  form {
+    padding-right: 1.5rem;
+    padding-bottom: 1rem;
+    overflow-y: scroll;
   }
 }
 
@@ -89,12 +97,6 @@ fieldset {
     border-radius: 0.3rem;
     transition: color 0.3s ease 0s, border 0.3s ease 0s, background 0.3s ease 0s;
   }
-}
-
-.form-wrap {
-  padding-right: 1.5rem;
-  padding-bottom: 1rem;
-  overflow-y: scroll;
 }
 
 .bill-from .form-control:nth-child(1) {

@@ -22,7 +22,7 @@
 .inovice-id {
   grid-area: 1 / 1 / 2 / 2;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 
   @include mq(md) {
     margin-bottom: initial;

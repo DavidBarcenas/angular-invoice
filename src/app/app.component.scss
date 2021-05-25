@@ -1,13 +1,23 @@
 @import "mq";
 
 .container {
+  padding-top: 80px;
+
   @include mq(lg) {
-    padding-left: 103px;
     padding-top: 0;
+    padding-left: 103px;
   }
 }
 
 .invoice-main {
-  width: 88%;
   margin: auto;
+  padding: 2rem 1.5rem;
+
+  @include mq(md) {
+    padding: 3.5rem 3rem;
+  }
+
+  @include mq(lg) {
+    padding: 4.5rem 3rem;
+  }
 }

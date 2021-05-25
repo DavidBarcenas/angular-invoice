@@ -2,15 +2,16 @@
 
 .invoice {
   animation: fadeIn 1s ease-in-out;
+  max-width: 45.5rem;
+  margin: 0 auto;
+
+  @include mq(md) {
+    padding: 0 2rem;
+  }
 }
 
 .invoice-back {
-  margin: 2rem 0;
-
-  @include mq(md) {
-    margin: 3.5rem auto 2rem;
-    width: 90%;
-  }
+  margin-bottom: 2rem;
 
   .go-back {
     span {
@@ -28,11 +29,6 @@
   border-radius: 0.5rem;
   font-size: 0.75rem;
   padding: 1.5rem;
-
-  @include mq(md) {
-    width: 90%;
-    margin: auto;
-  }
 }
 
 .invoice-status-card {
@@ -57,7 +53,11 @@
 }
 
 .invoice-wrap {
-  margin-bottom: 3.5rem;
+  margin-bottom: 2rem;
+
+  @include mq(md) {
+    margin-bottom: 0;
+  }
 }
 
 .invoice-header {
@@ -262,6 +262,8 @@
   margin-left: -5.5%;
   text-align: right;
   width: 111%;
+  position: relative;
+  bottom: -2rem;
 
   .btn {
     margin-left: 0.5rem;
@@ -272,6 +274,7 @@
     padding: 0;
     margin: 0;
     width: auto;
+    bottom: 0;
 
     @include mq(sm) {
       display: inline-flex;

@@ -3,9 +3,9 @@
   [class.close-form]="filterService.animationCloseForm"
   *ngIf="filterService.openForm"
 >
-  <h2>Create Invoice</h2>
-
   <div class="form-wrap">
+    <h2>Create Invoice</h2>
+
     <form>
       <fieldset>
         <legend>Bill From</legend>
@@ -117,13 +117,13 @@
 
       <button class="btn btn-add-items">+ Add New Item</button>
     </form>
-  </div>
 
-  <div class="invoice-form-actions flex-between">
-    <button class="btn" (click)="filterService.closeForm()">Discard</button>
-    <div>
-      <button class="btn">Save as Draft</button>
-      <button class="btn">Save & Send</button>
+    <div class="invoice-form-actions flex-between">
+      <button class="btn" (click)="filterService.closeForm()">Discard</button>
+      <div>
+        <button class="btn">Save as Draft</button>
+        <button class="btn">Save & Send</button>
+      </div>
     </div>
   </div>
 </section>

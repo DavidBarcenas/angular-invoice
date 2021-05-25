@@ -4,12 +4,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 2rem auto 4rem;
+  margin: 0 auto;
+  margin-bottom: 4rem;
   animation: fadeIn 1s ease-in-out;
-
-  @include mq(md) {
-    margin-top: 3.5rem;
-  }
+  max-width: 46rem;
 }
 
 .header-title {
