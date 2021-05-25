@@ -3,19 +3,13 @@
   class="invoice-item theme-animation"
   [ngStyle]="{ 'animation-delay': idx * 0.2 + 's' }"
 >
-  <div class="invoice-wrap">
-    <span class="inovice-id">{{ invoice.id }}</span>
-    <p class="inovice-client">{{ invoice.clientName }}</p>
-  </div>
-  <div class="invoice-wrap">
-    <div>
-      <span class="invoice-date"
-        >Due {{ invoice.createdAt | date: "dd MMM yyyy" }}</span
-      >
-      <p class="invoice-total">£{{ invoice.total | number }}</p>
-    </div>
-    <span class="inovice-status" [ngClass]="'status-' + invoice.status">{{
-      invoice.status
-    }}</span>
-  </div>
+  <span class="inovice-id">{{ invoice.id }}</span>
+  <p class="inovice-client">{{ invoice.clientName }}</p>
+  <span class="invoice-date">
+    Due {{ invoice.createdAt | date: "dd MMM yyyy" }}
+  </span>
+  <p class="invoice-total">£{{ invoice.total | number }}</p>
+  <span class="inovice-status" [ngClass]="'status-' + invoice.status">
+    {{ invoice.status }}
+  </span>
 </li>

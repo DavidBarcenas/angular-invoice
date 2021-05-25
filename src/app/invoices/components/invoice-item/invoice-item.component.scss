@@ -1,4 +1,6 @@
 .invoice-item {
+  display: grid;
+  grid-template-rows: max-content 1fr;
   background: var(--bg-box);
   border-radius: 0.4rem;
   font-size: 0.75rem;
@@ -9,23 +11,19 @@
   animation-fill-mode: forwards;
 }
 
-.invoice-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  &:first-child {
-    margin-bottom: 1.5rem;
-  }
-}
-
 .inovice-id {
+  grid-area: 1 / 1 / 2 / 2;
   font-weight: 700;
 
   &:before {
     content: "#";
     color: hsl(231, 37%, 63%);
   }
+}
+
+.inovice-client {
+  grid-area: 1 / 2 / 2 / 3;
+  text-align: end;
 }
 
 .invoice-date {

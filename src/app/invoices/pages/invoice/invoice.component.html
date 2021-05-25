@@ -5,10 +5,16 @@
   </button>
 
   <div class="invoice-status-card flex-between theme-animation">
-    <p>Status</p>
-    <span class="inovice-status" [ngClass]="'status-' + invoice.status">{{
-      invoice.status
-    }}</span>
+    <div class="flex-between">
+      <p>Status</p>
+      <span class="inovice-status" [ngClass]="'status-' + invoice.status">
+        {{ invoice.status }}
+      </span>
+    </div>
+    <div class="invoice-actions top">
+      <button class="btn" (click)="closeModal()">Cancel</button>
+      <button class="btn btn-delete" (click)="handleDelete()">Delete</button>
+    </div>
   </div>
 
   <div class="invoice-wrap theme-animation">
@@ -80,7 +86,7 @@
     </div>
   </div>
 
-  <div class="invoice-actions">
+  <div class="invoice-actions bottom">
     <button class="btn">Edit</button>
     <button class="btn btn-delete" (click)="openModal()">Delete</button>
   </div>
