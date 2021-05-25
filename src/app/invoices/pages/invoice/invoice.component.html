@@ -1,8 +1,10 @@
 <section class="invoice" *ngIf="invoice">
-  <button class="go-back" routerLink="/">
-    <img src="../../../../assets/img/icon-arrow-left.svg" alt="go back" />
-    <span>Go back</span>
-  </button>
+  <div class="invoice-back">
+    <button class="go-back" routerLink="/">
+      <img src="../../../../assets/img/icon-arrow-left.svg" alt="go back" />
+      <span>Go back</span>
+    </button>
+  </div>
 
   <div class="invoice-status-card flex-between theme-animation">
     <div class="flex-between">
@@ -12,7 +14,7 @@
       </span>
     </div>
     <div class="invoice-actions top">
-      <button class="btn" (click)="closeModal()">Cancel</button>
+      <button class="btn" (click)="closeModal()">Edit</button>
       <button class="btn btn-delete" (click)="handleDelete()">Delete</button>
     </div>
   </div>

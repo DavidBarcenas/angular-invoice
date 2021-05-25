@@ -1,4 +1,13 @@
+@import "mq";
+
+.container {
+  @include mq(lg) {
+    padding-left: 103px;
+    padding-top: 0;
+  }
+}
+
 .invoice-main {
-  width: 90%;
+  width: 88%;
   margin: auto;
 }

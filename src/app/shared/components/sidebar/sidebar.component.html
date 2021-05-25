@@ -2,12 +2,14 @@
   <div class="sidebar-logo">
     <img src="../../../assets/img/logo.svg" alt="Invoice App" />
   </div>
-  <button class="sidebar-button--theme" (click)="handleTheme()">
-    <img [src]="themeIcon" alt="Toggle Theme" />
-  </button>
-  <button class="sidebar-button--credits" (click)="handleShowCredits()">
-    <img src="../../../assets/img/avatar-credits.jpg" alt="ApplePieGiraffe" />
-  </button>
+  <div class="sidebar-cta flex-center">
+    <button class="sidebar-button--theme" (click)="handleTheme()">
+      <img [src]="themeIcon" alt="Toggle Theme" />
+    </button>
+    <button class="sidebar-button--credits" (click)="handleShowCredits()">
+      <img src="../../../assets/img/avatar-credits.jpg" alt="ApplePieGiraffe" />
+    </button>
+  </div>
 </aside>
 <app-credits
   *ngIf="showCredits"

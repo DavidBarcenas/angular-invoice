@@ -1,17 +1,24 @@
 @import "mq";
 
-.go-back {
-  margin: 2rem 0;
-
-  span {
-    display: inline-block;
-    font-size: 0.75rem;
-    margin-left: 1.5rem;
-  }
-}
-
 .invoice {
   animation: fadeIn 1s ease-in-out;
+}
+
+.invoice-back {
+  margin: 2rem 0;
+
+  @include mq(md) {
+    margin: 3.5rem auto 2rem;
+    width: 90%;
+  }
+
+  .go-back {
+    span {
+      display: inline-block;
+      font-size: 0.75rem;
+      margin-left: 1.5rem;
+    }
+  }
 }
 
 .invoice-status-card,
@@ -21,10 +28,19 @@
   border-radius: 0.5rem;
   font-size: 0.75rem;
   padding: 1.5rem;
+
+  @include mq(md) {
+    width: 90%;
+    margin: auto;
+  }
 }
 
 .invoice-status-card {
   margin-bottom: 1rem;
+
+  @include mq(md) {
+    margin-bottom: 1.75rem;
+  }
 
   .flex-between {
     width: 100%;
@@ -47,9 +63,18 @@
 .invoice-header {
   margin-bottom: 2.5rem;
 
+  @include mq(md) {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &--left {
     width: 100%;
     margin-bottom: 2.5rem;
+
+    @include mq(md) {
+      width: auto;
+    }
 
     p {
       color: var(--btn-text);
@@ -60,6 +85,10 @@
       font-size: 0.8rem;
       font-weight: 700;
       margin-bottom: 0.3rem;
+
+      @include mq(md) {
+        font-size: 1rem;
+      }
 
       &:before {
         content: "#";
@@ -76,6 +105,10 @@
     font-style: normal;
     text-align: left;
 
+    @include mq(md) {
+      text-align: right;
+    }
+
     p {
       color: var(--btn-text);
       margin-bottom: 0.3rem;
@@ -85,6 +118,10 @@
 
 .invoice-body {
   align-items: flex-start;
+
+  @include mq(md) {
+    margin-bottom: 1.5rem;
+  }
 
   .date-wrap,
   .bill-to,
@@ -98,6 +135,10 @@
 
   .date-wrap {
     width: 50%;
+
+    @include mq(md) {
+      width: 33%;
+    }
   }
 
   .date {
@@ -112,6 +153,10 @@
   .bill-to {
     width: 50%;
 
+    @include mq(md) {
+      width: 33%;
+    }
+
     h2 {
       margin: 0.75rem 0 0.5rem;
       font-size: 0.95rem;
@@ -125,6 +170,10 @@
 
   .send-to {
     margin-bottom: 2.5rem;
+
+    @include mq(md) {
+      width: 33%;
+    }
 
     p {
       font-size: 0.95rem;
