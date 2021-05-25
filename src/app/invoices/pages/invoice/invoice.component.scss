@@ -1,3 +1,5 @@
+@import "~src/app/sass/mq";
+
 .go-back {
   margin: 2rem 0;
 
@@ -12,7 +14,7 @@
   animation: fadeIn 1s ease-in-out;
 }
 
-.invoice-status,
+.invoice-status-card,
 .invoice-wrap {
   background: var(--invoice-bg);
   box-shadow: rgb(72 84 159 / 10%) 0px 10px 10px -10px;
@@ -21,8 +23,12 @@
   padding: 1.5rem;
 }
 
-.invoice-status {
+.invoice-status-card {
   margin-bottom: 1rem;
+
+  p {
+    color: var(--btn-text);
+  }
 }
 
 .invoice-wrap {
@@ -36,9 +42,13 @@
     width: 100%;
     margin-bottom: 2.5rem;
 
+    p {
+      color: var(--btn-text);
+    }
+
     span {
       display: inline-block;
-      font-size: 0.95rem;
+      font-size: 0.8rem;
       font-weight: 700;
       margin-bottom: 0.3rem;
 
@@ -135,20 +145,30 @@
     }
 
     th:nth-child(1) {
-      // width: 35%;
       width: 50%;
+      @include mq(xs) {
+        width: 35%;
+      }
     }
     th:nth-child(2) {
       display: none;
       width: 15%;
+      @include mq(xs) {
+        display: table-cell;
+      }
     }
     th:nth-child(3) {
       display: none;
       width: 25%;
+      @include mq(xs) {
+        display: table-cell;
+      }
     }
     th:nth-child(4) {
-      // width: 25%;
       width: 50%;
+      @include mq(xs) {
+        width: 25%;
+      }
     }
 
     td {
@@ -159,6 +179,9 @@
     td:nth-child(3) {
       color: var(--btn-text);
       display: none;
+      @include mq(xs) {
+        display: table-cell;
+      }
     }
   }
 }

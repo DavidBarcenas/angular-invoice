@@ -4,9 +4,11 @@
     <span>Go back</span>
   </button>
 
-  <div class="invoice-status flex-between theme-animation">
+  <div class="invoice-status-card flex-between theme-animation">
     <p>Status</p>
-    <span [ngClass]="'status-' + invoice.status">{{ invoice.status }}</span>
+    <span class="inovice-status" [ngClass]="'status-' + invoice.status">{{
+      invoice.status
+    }}</span>
   </div>
 
   <div class="invoice-wrap theme-animation">

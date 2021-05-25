@@ -71,11 +71,10 @@ ul {
   &:before {
     content: "";
     display: inline-block;
-    width: 8px;
-    height: 8px;
+    width: 0.5rem;
+    height: 0.5rem;
     border-radius: 50%;
     background: inherit;
-    vertical-align: middle;
     margin-right: 0.5rem;
   }
 }
