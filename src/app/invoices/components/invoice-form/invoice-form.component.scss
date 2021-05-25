@@ -1,3 +1,5 @@
+@import "~src/app/sass/mq";
+
 .invoice-form {
   display: grid;
   grid-template-rows: min-content 1fr min-content;
@@ -10,6 +12,11 @@
   z-index: 99;
   animation: slideIn 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
   padding: 2rem 1rem 0 1.5rem;
+
+  @include mq(xs) {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
 
   &.close-form {
     transform: translateX(-100%);
@@ -175,6 +182,10 @@ fieldset {
 
   button {
     padding: 0 1rem;
+
+    @include mq(xs) {
+      padding: 0 1.5rem;
+    }
   }
 
   div {
