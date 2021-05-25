@@ -1,3 +1,5 @@
+@import "~src/app/sass/mq";
+
 .header {
   display: flex;
   align-items: center;
@@ -11,6 +13,10 @@
     font-size: 1.25rem;
     letter-spacing: -1px;
     margin-bottom: 2px;
+
+    @include mq(xs) {
+      font-size: 2rem;
+    }
   }
 
   span {
@@ -28,7 +34,7 @@
 .header-btn--filter {
   margin-right: 1rem;
 
-  span {
+  .header-btn-text {
     font-weight: 700;
     font-size: 0.75rem;
     margin-right: 1rem;
@@ -52,6 +58,10 @@
   padding-right: 1rem;
   border-radius: 1.75rem;
 
+  @include mq(xs) {
+    margin-left: 1.5rem;
+  }
+
   .wrap-icon-plus {
     $width: 30px;
     background: #fff;
@@ -66,10 +76,19 @@
     }
   }
 
-  span {
+  .header-btn-text {
     font-weight: 700;
     font-size: 0.75rem;
     margin-left: 0.5rem;
+  }
+}
+
+.header-text-hide {
+  display: none;
+  margin: 0;
+
+  @include mq(xs) {
+    display: inline-block;
   }
 }
 

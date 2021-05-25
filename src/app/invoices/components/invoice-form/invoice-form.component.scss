@@ -7,7 +7,7 @@
   width: 100%;
   height: calc(100vh - 80px);
   background: var(--bg-form);
-  z-index: 200;
+  z-index: 99;
   animation: slideIn 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
   padding: 2rem 1rem 0 1.5rem;
 
@@ -49,7 +49,7 @@ fieldset {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
-  margin-bottom: 2.5rem;  
+  margin-bottom: 2.5rem;
 
   label {
     color: var(--btn-text);
@@ -104,7 +104,7 @@ fieldset {
 }
 
 .bill-to .form-control:nth-child(5) {
-  grid-column: 2 / -1 ;
+  grid-column: 2 / -1;
 }
 
 .bill-date .form-control:nth-child(1) {
@@ -120,7 +120,7 @@ fieldset {
 }
 
 .add-items {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 
   h3 {
     color: hsl(225, 14%, 53%);
@@ -131,34 +131,34 @@ fieldset {
   .form-section {
     grid-template-columns: 4rem repeat(4, 1fr) min-content;
     gap: 1.5rem 1rem;
-    
+
     .form-control:nth-child(1) {
-      grid-column: 1 / -1; 
-    } 
-    
-    .form-control:nth-child(3) {
-      grid-column: 2 / span 2; 
+      grid-column: 1 / -1;
     }
-    
+
+    .form-control:nth-child(3) {
+      grid-column: 2 / span 2;
+    }
+
     .form-control:nth-child(4) {
-      grid-column: 4 / span 2; 
+      grid-column: 4 / span 2;
 
       input {
         color: hsl(231, 20%, 61%);
         border: none;
         background: none;
-        padding-left: .5rem;
+        padding-left: 0.5rem;
       }
     }
-    
+
     .form-control:nth-child(5) {
-      grid-column: -2 / -1; 
+      grid-column: -2 / -1;
     }
   }
 
   button {
     margin-top: 1rem;
-    
+
     svg {
       fill: hsl(231, 20%, 61%);
     }

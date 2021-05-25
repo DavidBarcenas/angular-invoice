@@ -90,7 +90,7 @@ ul {
 }
 .status-pending {
   color: $status-pending;
-  background: rgba(var(--$status-pending), 0.05);
+  background: rgba($status-pending, 0.05);
 
   &:before {
     background: $status-pending;
