@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Invoice } from '../../interfaces/invoice.interface';
-import { FilterService } from '../../services/filter.service';
+import { UIService } from '../../../shared/services/ui.service';
 
 @Component({
   selector: 'app-invoice-list',
@@ -11,10 +11,10 @@ export class InvoiceListComponent implements OnInit {
   @Input() invoices: Observable<Invoice>;
   activeFilter: string;
 
-  constructor(private filterService: FilterService) {}
+  constructor(private uiService: UIService) {}
 
   ngOnInit(): void {
-    this.filterService.activeFilter.subscribe(
+    this.uiService.activeFilter.subscribe(
       (filter) => (this.activeFilter = filter)
     );
   }

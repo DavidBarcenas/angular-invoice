@@ -5,7 +5,7 @@
   </div>
   <div>
     <div class="header-filter--dropdown">
-      <button class="header-btn--filter" (click)="filterService.toggleFilter()">
+      <button class="header-btn--filter" (click)="showFilter()">
         <span class="header-btn-text">
           Filter <span class="header-text-hide">by status</span>
         </span>
@@ -13,13 +13,13 @@
           src="../../../../assets/img/icon-arrow-down.svg"
           alt="Icon Arrow"
           class="filter-icon-arrow"
-          [class.activeFilter]="filterService.openFilter"
+          [class.activeFilter]="openFilter"
         />
       </button>
       <ul
-        (mouseleave)="filterService.closeFilter($event)"
+        (mouseleave)="closeFilter($event)"
         class="dropdown"
-        *ngIf="filterService.openFilter"
+        *ngIf="openFilter"
       >
         <li
           *ngFor="let filter of filters; let i = index"
@@ -33,7 +33,7 @@
         </li>
       </ul>
     </div>
-    <button class="header-btn--new" (click)="filterService.toggleForm()">
+    <button class="header-btn--new" (click)="toggleForm()">
       <div class="wrap-icon-plus">
         <img src="../../../../assets/img/icon-plus.svg" alt="Icon Plus" />
       </div>

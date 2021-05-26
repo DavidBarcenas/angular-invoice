@@ -17,3 +17,99 @@
   --bg-form: #{$light-bg};
   --color-border-input: #{$light-dropdown-checkbox};
 }
+
+.theme-animation {
+  transition: background 0.3s ease 0s;
+}
+
+.flex-center,
+.flex-between {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.status-paid,
+.status-pending,
+.status-draft {
+  font-weight: 700;
+  line-height: 2.3rem;
+  text-transform: capitalize;
+  width: 105px;
+  text-align: center;
+
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: inherit;
+    margin-right: 0.3rem;
+  }
+}
+
+.status-paid {
+  color: $status-paid;
+  background: rgba($status-paid, 0.05);
+
+  &:before {
+    background: $status-paid;
+  }
+}
+
+.status-pending {
+  color: $status-pending;
+  background: rgba($status-pending, 0.05);
+
+  &:before {
+    background: $status-pending;
+  }
+}
+
+.status-draft {
+  color: rgba(var(--status-draft), 1);
+  background: rgba(var(--status-draft), 0.05);
+
+  &:before {
+    background: rgba(var(--status-draft), 1);
+  }
+}
+
+.btn {
+  background: var(--btn-bg);
+  border-radius: 2rem;
+  color: var(--btn-text);
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 3rem;
+  padding: 0 1.5rem;
+  min-width: 90px;
+  cursor: pointer;
+  transition: color 0.3s ease 0s, border 0.3s ease 0s, background 0.3s ease 0s;
+
+  &-delete {
+    background: hsl(0, 80%, 63%);
+    color: #fff;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.backdrop {
+  overflow-y: hidden;
+}

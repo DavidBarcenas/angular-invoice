@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Inject, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ export class ThemeService {
 
   darkThemeSelected = false;
 
-  constructor() {
+  constructor(@Inject(DOCUMENT) private document: Document) {
     this.darkThemeSelected =
       localStorage.getItem(this.THEME_KEY) === this.DARK_THEME_VALUE;
   }
@@ -32,15 +33,15 @@ export class ThemeService {
     }
   }
 
-  private setLightTheme() {
+  private setLightTheme(): void {
     localStorage.setItem(this.THEME_KEY, this.LIGHT_THEME_VALUE);
-    document.body.classList.remove(this.DARK_THEME_CLASS_NAME);
+    this.document.body.classList.remove(this.DARK_THEME_CLASS_NAME);
     this.darkThemeSelected = false;
   }
 
-  private setDarkTheme() {
+  private setDarkTheme(): void {
     localStorage.setItem(this.THEME_KEY, this.DARK_THEME_VALUE);
-    document.body.classList.add(this.DARK_THEME_CLASS_NAME);
+    this.document.body.classList.add(this.DARK_THEME_CLASS_NAME);
     this.darkThemeSelected = true;
   }
 }

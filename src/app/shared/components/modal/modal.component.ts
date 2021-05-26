@@ -7,17 +7,17 @@ import { ModalService } from '../../services/modal.service';
   styleUrls: ['./modal.component.scss'],
 })
 export class ModalComponent {
+  constructor(private modalService: ModalService) {}
+
+  closeModal(): void {
+    this.modalService.close();
+  }
+
   get openModal() {
     return this.modalService.openModal;
   }
 
   get animationCloseModal() {
     return this.modalService.animationCloseModal;
-  }
-
-  constructor(private modalService: ModalService) {}
-
-  closeModal(): void {
-    this.modalService.close();
   }
 }

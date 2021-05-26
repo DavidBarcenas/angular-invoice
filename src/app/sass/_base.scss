@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Spartan", sans-serif;
+  background: var(--body-bg);
+  color: var(--body-text);
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button {
+  background: transparent;
+  border: none;
+  color: var(--body-text);
+  font-family: "Spartan", sans-serif;
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: inline-block;
+}
+
+ul {
+  list-style: none;
+}

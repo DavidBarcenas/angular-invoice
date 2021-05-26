@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FilterService } from '../../services/filter.service';
+import { UIService } from '../../../shared/services/ui.service';
 
 @Component({
   selector: 'app-header',
@@ -8,29 +8,20 @@ import { FilterService } from '../../services/filter.service';
 })
 export class HeaderComponent {
   filters: Filter[] = [
-    {
-      name: 'Paid',
-      checked: false,
-    },
-    {
-      name: 'Pending',
-      checked: false,
-    },
-    {
-      name: 'Draft',
-      checked: false,
-    },
+    { name: 'Paid', checked: false },
+    { name: 'Pending', checked: false },
+    { name: 'Draft', checked: false },
   ];
 
-  constructor(public filterService: FilterService) {}
+  constructor(private uiService: UIService) {}
 
   toggleFilter(filterName: string, idx: number): void {
     this.filters[idx].checked = !this.filters[idx].checked;
 
     if (this.filters[idx].checked) {
-      this.filterService.activeFilter.emit(filterName);
+      this.uiService.activeFilter.emit(filterName);
     } else {
-      this.filterService.activeFilter.emit(null);
+      this.uiService.activeFilter.emit(null);
     }
 
     this.filters.map((f) => {
@@ -38,6 +29,22 @@ export class HeaderComponent {
         f.checked = false;
       }
     });
+  }
+
+  showFilter(): void {
+    this.uiService.toggleFilter();
+  }
+
+  closeFilter(event: any): void {
+    this.uiService.closeFilter(event);
+  }
+
+  toggleForm(): void {
+    this.uiService.toggleForm();
+  }
+
+  get openFilter() {
+    return this.uiService.openFilter;
   }
 }
 

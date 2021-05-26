@@ -1,7 +1,7 @@
 <section
   class="invoice-form theme-animation"
-  [class.close-form]="filterService.animationCloseForm"
-  *ngIf="filterService.openForm"
+  [class.close-form]="animateFormClose"
+  *ngIf="openForm"
 >
   <div class="form-wrap">
     <h2>Create Invoice</h2>
@@ -9,7 +9,6 @@
     <form>
       <fieldset>
         <legend>Bill From</legend>
-
         <div class="form-section bill-from">
           <div class="form-control">
             <label for="street">Street Address*</label>
@@ -32,7 +31,6 @@
 
       <fieldset>
         <legend>Bill To</legend>
-
         <div class="form-section bill-to">
           <div class="form-control">
             <label for="name">Client's Name</label>
@@ -127,7 +125,7 @@
     </form>
 
     <div class="invoice-form-actions flex-between">
-      <button class="btn" (click)="filterService.closeForm()">Discard</button>
+      <button class="btn" (click)="closeForm()">Discard</button>
       <div>
         <button class="btn">Save as Draft</button>
         <button class="btn">Save & Send</button>
