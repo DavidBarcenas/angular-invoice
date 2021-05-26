@@ -125,6 +125,10 @@ ul {
   text-align: right;
 }
 
+.backdrop {
+  overflow: hidden;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;

@@ -1,4 +1,9 @@
 <div class="container" (click)="filterService.closeFilter($event)">
+  <div
+    class="backdrop"
+    *ngIf="filterService.openForm"
+    (click)="filterService.closeForm()"
+  ></div>
   <app-sidebar></app-sidebar>
   <main class="invoice-main">
     <router-outlet></router-outlet>
