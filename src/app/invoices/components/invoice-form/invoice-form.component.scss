@@ -96,6 +96,14 @@ fieldset {
     padding: 1rem;
     border-radius: 0.3rem;
     transition: color 0.3s ease 0s, border 0.3s ease 0s, background 0.3s ease 0s;
+
+    &:focus {
+      border-color: var(--dark-purple);
+    }
+
+    &::placeholder {
+      color: var(--btn-text);
+    }
   }
 }
 

@@ -33,6 +33,7 @@ export class FilterService {
     if (
       e.target.parentNode &&
       e.target.parentNode.className !== 'header-btn--filter' &&
+      e.target.parentNode.className !== 'header-btn-text' &&
       e.target.parentNode.className !== 'header-filter--dropdown' &&
       !e.target.closest('.dropdown')
     ) {

@@ -5,17 +5,24 @@
   grid-template-rows: max-content 1fr;
   background: var(--bg-box);
   border-radius: 0.4rem;
+  border: 1px solid transparent;
+  cursor: pointer;
   font-size: 0.75rem;
   margin-bottom: 1rem;
   padding: 1.2rem 1.5rem;
   opacity: 0;
   animation: fadeIn 0.3s ease-in-out;
   animation-fill-mode: forwards;
+  transition: all 0.3s ease;
 
   @include mq(md) {
     grid-template-columns: 5rem 9rem 1fr min-content min-content min-content;
     grid-template-rows: min-content;
     align-items: center;
+  }
+
+  &:hover {
+    border-color: var(--dark-purple);
   }
 }
 
@@ -54,6 +61,7 @@
   @include mq(md) {
     grid-area: 1 / 2 / 2 / 3;
     margin-bottom: 0;
+    margin-left: 0.5rem;
   }
 }
 
@@ -73,7 +81,7 @@
   @include mq(md) {
     grid-area: 1 / 5 / 2 / 6;
     margin-left: 2rem;
-    margin-right: 1rem;
+    margin-right: 1.5rem;
   }
 }
 
