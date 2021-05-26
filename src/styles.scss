@@ -126,7 +126,9 @@ ul {
 }
 
 .backdrop {
-  overflow: hidden;
+  overflow-y: hidden;
+  padding-right: 12px;
+  box-sizing: border-box;
 }
 
 @keyframes fadeIn {

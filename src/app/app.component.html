@@ -1,6 +1,7 @@
 <div class="container" (click)="filterService.closeFilter($event)">
   <div
     class="backdrop"
+    [class.backdrop-close]="filterService.animationCloseForm"
     *ngIf="filterService.openForm"
     (click)="filterService.closeForm()"
   ></div>

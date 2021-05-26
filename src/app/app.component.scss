@@ -30,4 +30,9 @@
   right: 0;
   background: rgba(#000, 0.5);
   z-index: 50;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.backdrop-close {
+  animation: fadeOut 0.3s ease;
 }
