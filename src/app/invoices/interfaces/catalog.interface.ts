@@ -1,11 +1,10 @@
 export interface Catalog {
   _id: string;
-  status: Status;
-  paymentTerms: string[];
+  status: string[];
+  paymentTerms: PaymentTerms[];
 }
 
-export interface Status {
-  paid: string;
-  pending: string;
-  draft: string;
+export interface PaymentTerms {
+  id: number;
+  name: string;
 }

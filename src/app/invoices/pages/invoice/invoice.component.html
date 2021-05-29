@@ -22,7 +22,7 @@
   <div class="invoice-wrap theme-animation">
     <div class="invoice-header flex-between">
       <div class="invoice-header--left">
-        <span>{{ invoice._id }}</span>
+        <span>{{ invoice._id | slice: 0:6 | uppercase }}</span>
         <p>{{ invoice.description }}</p>
       </div>
 

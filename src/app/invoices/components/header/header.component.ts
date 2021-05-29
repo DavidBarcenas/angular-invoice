@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { UIService } from '../../../shared/services/ui.service';
 
 @Component({
@@ -6,17 +13,22 @@ import { UIService } from '../../../shared/services/ui.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnChanges {
   @Output() filter = new EventEmitter<string>();
   @Input() statusCatalog = [];
 
-  filters: Filter[] = [
-    { name: 'Paid', checked: false },
-    { name: 'Pending', checked: false },
-    { name: 'Draft', checked: false },
-  ];
+  filters: Filter[] = [];
 
   constructor(private uiService: UIService) {}
+
+  ngOnChanges(change: SimpleChanges): void {
+    if (change.statusCatalog.currentValue) {
+      this.filters = this.statusCatalog.map((item: string) => ({
+        name: item,
+        checked: false,
+      }));
+    }
+  }
 
   toggleFilter(filterName: string, idx: number): void {
     this.filters[idx].checked = !this.filters[idx].checked;
