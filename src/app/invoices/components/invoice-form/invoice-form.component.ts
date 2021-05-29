@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { UIService } from '../../../shared/services/ui.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { UIService } from '../../../shared/services/ui.service';
   styleUrls: ['./invoice-form.component.scss'],
 })
 export class InvoiceFormComponent {
+  @Input() termsCatalog = [];
+
   constructor(private uiService: UIService) {}
 
   closeForm(): void {

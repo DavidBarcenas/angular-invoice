@@ -22,7 +22,7 @@
   <div class="invoice-wrap theme-animation">
     <div class="invoice-header flex-between">
       <div class="invoice-header--left">
-        <span>{{ invoice.id }}</span>
+        <span>{{ invoice._id }}</span>
         <p>{{ invoice.description }}</p>
       </div>
 
@@ -98,7 +98,7 @@
   <div class="modal-invoice-delete">
     <h2>Confirm Deletion</h2>
     <p>
-      Are you sure you want to delete invoice {{ invoice?.id }}? This action
+      Are you sure you want to delete invoice {{ invoice?._id }}? This action
       cannot be undone.
     </p>
     <div class="invoice-actions">

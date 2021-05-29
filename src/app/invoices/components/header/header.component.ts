@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { UIService } from '../../../shared/services/ui.service';
 
 @Component({
@@ -7,6 +7,9 @@ import { UIService } from '../../../shared/services/ui.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+  @Output() filter = new EventEmitter<string>();
+  @Input() statusCatalog = [];
+
   filters: Filter[] = [
     { name: 'Paid', checked: false },
     { name: 'Pending', checked: false },
@@ -19,9 +22,9 @@ export class HeaderComponent {
     this.filters[idx].checked = !this.filters[idx].checked;
 
     if (this.filters[idx].checked) {
-      this.uiService.activeFilter.emit(filterName);
+      this.filter.emit(filterName);
     } else {
-      this.uiService.activeFilter.emit(null);
+      this.filter.emit(null);
     }
 
     this.filters.map((f) => {
