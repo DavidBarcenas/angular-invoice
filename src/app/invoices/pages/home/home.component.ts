@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { UIService } from 'src/app/shared/services/ui.service';
 import { Invoice } from '../../interfaces/invoice.interface';
 import { InvoiceService } from '../../services/invoice.service';
 
@@ -13,7 +14,10 @@ export class HomeComponent implements OnInit {
   statusCatalog: string[] = [];
   termsCatalog: string[] = [];
 
-  constructor(private invoicesService: InvoiceService) {}
+  constructor(
+    private invoicesService: InvoiceService,
+    private uiService: UIService
+  ) {}
 
   ngOnInit(): void {
     this.invoices$ = this.invoicesService.getInvoices();
@@ -25,5 +29,9 @@ export class HomeComponent implements OnInit {
 
   filterByStatus(status: string): void {
     this.invoices$ = this.invoicesService.getInvoices(status?.toLowerCase());
+  }
+
+  get openForm() {
+    return this.uiService.openForm;
   }
 }
