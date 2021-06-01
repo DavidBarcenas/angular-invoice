@@ -10,7 +10,7 @@
         <legend>Bill From</legend>
         <div class="form-section bill-from" formGroupName="senderAddress">
           <div class="form-control">
-            <label for="street">Street Address*</label>
+            <label for="street" data-test="prueba"> Street Address </label>
             <input type="text" id="street" formControlName="street" />
           </div>
           <div class="form-control">
@@ -72,7 +72,9 @@
             <input type="text" id="invoice-date" formControlName="paymentDue" />
           </div>
           <div class="form-control">
-            <label for="payment-terms">Payment Terms</label>
+            <label for="payment-terms" [class.error]="errors.paymentTerms"
+              >Payment Terms</label
+            >
             <select id="payment-terms" formControlName="paymentTerms">
               <option [value]="item.id" *ngFor="let item of termsCatalog">
                 {{ item.name }}

@@ -77,10 +77,15 @@ fieldset {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
+  .form-control {
+    display: grid;
+  }
+
   label {
     color: var(--btn-text);
     margin-bottom: 0.5rem;
     letter-spacing: -0.25px;
+    transition: color 0.3s ease 0s;
   }
 
   input,
@@ -95,6 +100,7 @@ fieldset {
     width: 100%;
     padding: 1rem;
     border-radius: 0.3rem;
+    order: 2;
     transition: color 0.3s ease 0s, border 0.3s ease 0s, background 0.3s ease 0s;
 
     &:focus {
@@ -103,6 +109,10 @@ fieldset {
 
     &::placeholder {
       color: var(--btn-text);
+    }
+
+    &.ng-touched.ng-invalid {
+      border-color: red;
     }
   }
 }

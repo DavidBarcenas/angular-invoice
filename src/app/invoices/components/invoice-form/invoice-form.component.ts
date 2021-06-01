@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UIService } from '../../../shared/services/ui.service';
 
 @Component({
@@ -10,27 +10,46 @@ import { UIService } from '../../../shared/services/ui.service';
 export class InvoiceFormComponent {
   @Input() termsCatalog = [];
   form: FormGroup;
+  errors = {
+    senderAddress: {
+      street: false,
+      city: false,
+      postCode: false,
+      country: false,
+    },
+    clientName: false,
+    clientEmail: false,
+    clientAddress: {
+      street: false,
+      city: false,
+      postCode: false,
+      country: false,
+    },
+    paymentDue: false,
+    paymentTerms: false,
+    description: false,
+  };
 
   constructor(private fb: FormBuilder, private uiService: UIService) {
     this.form = this.fb.group({
       senderAddress: this.fb.group({
-        street: [''],
-        city: [''],
-        postCode: [''],
-        country: [''],
+        street: ['', Validators.required],
+        city: ['', Validators.required],
+        postCode: ['', Validators.required],
+        country: ['', Validators.required],
       }),
-      clientName: [''],
-      clientEmail: [''],
+      clientName: ['', Validators.required],
+      clientEmail: ['', Validators.required],
       clientAddress: this.fb.group({
-        street: [''],
-        city: [''],
-        postCode: [''],
-        country: [''],
+        street: ['', Validators.required],
+        city: ['', Validators.required],
+        postCode: ['', Validators.required],
+        country: ['', Validators.required],
       }),
-      paymentDue: [''],
-      paymentTerms: [''],
-      description: [''],
-      items: this.fb.array([]),
+      paymentDue: ['', Validators.required],
+      paymentTerms: [30, Validators.required],
+      description: ['', Validators.required],
+      items: this.fb.array([], Validators.required),
     });
   }
 
@@ -42,7 +61,6 @@ export class InvoiceFormComponent {
       total: [0],
     });
     this.invoiceItems.push(item);
-    console.log(this.invoiceItems);
   }
 
   deleteItem(id: number): void {
@@ -50,11 +68,26 @@ export class InvoiceFormComponent {
   }
 
   handleFormSubmit(): void {
+    this.form.markAllAsTouched();
     console.log(this.form.value);
   }
 
   closeForm(): void {
     this.uiService.closeForm();
+  }
+
+  validateControl(group: string, controlName: string): void {
+    if (group) {
+      this.errors[group][controlName] =
+        this.form.controls[group].get(controlName).errors &&
+        (this.form.controls[group].get(controlName).dirty ||
+          this.form.controls[group].get(controlName).touched);
+    } else {
+      this.errors[controlName] =
+        this.form.controls[controlName].errors &&
+        (this.form.controls[controlName].dirty ||
+          this.form.controls[controlName].touched);
+    }
   }
 
   get invoiceItems(): FormArray {
