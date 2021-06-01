@@ -4,26 +4,45 @@
 >
   <div class="form-wrap">
     <h2>Create Invoice</h2>
-
     <form [formGroup]="form" novalidate autocomplete="off">
       <fieldset>
         <legend>Bill From</legend>
         <div class="form-section bill-from" formGroupName="senderAddress">
           <div class="form-control">
+            <input
+              type="text"
+              id="street"
+              formControlName="street"
+              autocomplete="off"
+            />
             <label for="street" data-test="prueba"> Street Address </label>
-            <input type="text" id="street" formControlName="street" />
           </div>
           <div class="form-control">
+            <input
+              type="text"
+              id="city"
+              formControlName="city"
+              autocomplete="off"
+            />
             <label for="city">City</label>
-            <input type="text" id="city" formControlName="city" />
           </div>
           <div class="form-control">
+            <input
+              type="text"
+              id="code"
+              formControlName="postCode"
+              autocomplete="off"
+            />
             <label for="code">Post Code</label>
-            <input type="text" id="code" formControlName="postCode" />
           </div>
           <div class="form-control">
+            <input
+              type="text"
+              id="country"
+              formControlName="country"
+              autocomplete="off"
+            />
             <label for="country">Country</label>
-            <input type="text" id="country" formControlName="country" />
           </div>
         </div>
       </fieldset>
@@ -32,34 +51,60 @@
         <legend>Bill To</legend>
         <div class="form-section bill-to">
           <div class="form-control">
+            <input
+              type="text"
+              id="name"
+              formControlName="clientName"
+              autocomplete="off"
+            />
             <label for="name">Client's Name</label>
-            <input type="text" id="name" formControlName="clientName" />
           </div>
           <div class="form-control">
-            <label for="email">Client's Email</label>
             <input
               type="text"
               id="email"
               placeholder="e.g. email@example.com"
               formControlName="clientEmail"
+              autocomplete="off"
             />
+            <label for="email">Client's Email</label>
           </div>
           <ng-container formGroupName="clientAddress">
             <div class="form-control">
+              <input
+                type="text"
+                id="street-to"
+                formControlName="street"
+                autocomplete="off"
+              />
               <label for="street-to">Street Address</label>
-              <input type="text" id="street-to" formControlName="street" />
             </div>
             <div class="form-control">
+              <input
+                type="text"
+                id="city-to"
+                formControlName="city"
+                autocomplete="off"
+              />
               <label for="city-to">City</label>
-              <input type="text" id="city-to" formControlName="city" />
             </div>
             <div class="form-control">
+              <input
+                type="text"
+                id="code-to"
+                formControlName="postCode"
+                autocomplete="off"
+              />
               <label for="code-to">Post Code</label>
-              <input type="text" id="code-to" formControlName="postCode" />
             </div>
             <div class="form-control">
+              <input
+                type="text"
+                id="country-to"
+                formControlName="country"
+                autocomplete="off"
+              />
               <label for="country-to">Country</label>
-              <input type="text" id="country-to" formControlName="country" />
             </div>
           </ng-container>
         </div>
@@ -67,28 +112,40 @@
 
       <fieldset>
         <div class="form-section bill-date">
-          <div class="form-control">
+          <div class="form-control date">
+            <input
+              type="date"
+              id="invoice-date"
+              formControlName="paymentDue"
+              autocomplete="off"
+            />
             <label for="invoice-date">Invoice Date</label>
-            <input type="text" id="invoice-date" formControlName="paymentDue" />
           </div>
-          <div class="form-control">
-            <label for="payment-terms" [class.error]="errors.paymentTerms"
-              >Payment Terms</label
+          <div class="form-control select">
+            <select
+              id="payment-terms"
+              formControlName="paymentTerms"
+              autocomplete="off"
             >
-            <select id="payment-terms" formControlName="paymentTerms">
               <option [value]="item.id" *ngFor="let item of termsCatalog">
                 {{ item.name }}
               </option>
             </select>
+            <img
+              src="../../../../assets/img/icon-arrow-down.svg"
+              alt="Icon Arrow"
+            />
+            <label for="payment-terms"> Payment Terms </label>
           </div>
           <div class="form-control">
-            <label for="description">Description</label>
             <input
               type="text"
               id="description"
               placeholder="e.g. Graphic Design Service"
               formControlName="description"
+              autocomplete="off"
             />
+            <label for="description">Description</label>
           </div>
         </div>
       </fieldset>
@@ -103,26 +160,42 @@
             [formGroupName]="i"
           >
             <div class="form-control">
+              <input
+                type="text"
+                id="item-name"
+                formControlName="name"
+                autocomplete="off"
+              />
               <label for="item-name">Item Name</label>
-              <input type="text" id="item-name" formControlName="name" />
             </div>
             <div class="form-control">
+              <input
+                type="number"
+                id="qty"
+                formControlName="quantity"
+                autocomplete="off"
+              />
               <label for="qty">Qty.</label>
-              <input type="number" id="qty" formControlName="quantity" />
             </div>
             <div class="form-control">
+              <input
+                type="number"
+                id="price"
+                formControlName="price"
+                autocomplete="off"
+              />
               <label for="price">Price</label>
-              <input type="text" id="price" formControlName="price" />
             </div>
             <div class="form-control">
-              <label for="total">Total</label>
               <input
                 type="number"
                 id="total"
                 value="0"
                 readonly
                 formControlName="total"
+                autocomplete="off"
               />
+              <label for="total">Total</label>
             </div>
             <div class="form-control flex-center">
               <button (click)="deleteItem(i)">
@@ -141,6 +214,11 @@
       <button class="btn btn-add-items" (click)="addItem()">
         + Add New Item
       </button>
+
+      <div class="error-message" *ngIf="showErrorMessage">
+        <p>- All fields must be filled.</p>
+        <p>- An item must be added.</p>
+      </div>
     </form>
 
     <div class="invoice-form-actions flex-between">

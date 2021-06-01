@@ -10,25 +10,7 @@ import { UIService } from '../../../shared/services/ui.service';
 export class InvoiceFormComponent {
   @Input() termsCatalog = [];
   form: FormGroup;
-  errors = {
-    senderAddress: {
-      street: false,
-      city: false,
-      postCode: false,
-      country: false,
-    },
-    clientName: false,
-    clientEmail: false,
-    clientAddress: {
-      street: false,
-      city: false,
-      postCode: false,
-      country: false,
-    },
-    paymentDue: false,
-    paymentTerms: false,
-    description: false,
-  };
+  showErrorMessage = false;
 
   constructor(private fb: FormBuilder, private uiService: UIService) {
     this.form = this.fb.group({
@@ -55,9 +37,9 @@ export class InvoiceFormComponent {
 
   addItem(): void {
     const item: FormGroup = this.fb.group({
-      name: [''],
-      quantity: [''],
-      price: [null],
+      name: ['', [Validators.required]],
+      quantity: ['', [Validators.required]],
+      price: [null, [Validators.required]],
       total: [0],
     });
     this.invoiceItems.push(item);
@@ -68,26 +50,15 @@ export class InvoiceFormComponent {
   }
 
   handleFormSubmit(): void {
-    this.form.markAllAsTouched();
-    console.log(this.form.value);
+    this.showErrorMessage = this.form.invalid;
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
   }
 
   closeForm(): void {
     this.uiService.closeForm();
-  }
-
-  validateControl(group: string, controlName: string): void {
-    if (group) {
-      this.errors[group][controlName] =
-        this.form.controls[group].get(controlName).errors &&
-        (this.form.controls[group].get(controlName).dirty ||
-          this.form.controls[group].get(controlName).touched);
-    } else {
-      this.errors[controlName] =
-        this.form.controls[controlName].errors &&
-        (this.form.controls[controlName].dirty ||
-          this.form.controls[controlName].touched);
-    }
   }
 
   get invoiceItems(): FormArray {
