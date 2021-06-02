@@ -190,7 +190,9 @@
               <input
                 type="number"
                 id="total"
-                value="0"
+                [value]="
+                  item.get('quantity').value * item.get('price').value || 0
+                "
                 readonly
                 formControlName="total"
                 autocomplete="off"

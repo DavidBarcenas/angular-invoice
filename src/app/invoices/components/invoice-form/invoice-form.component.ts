@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UIService } from '../../../shared/services/ui.service';
+import { InvoiceService } from '../../services/invoice.service';
 
 @Component({
   selector: 'app-invoice-form',
@@ -12,7 +13,11 @@ export class InvoiceFormComponent {
   form: FormGroup;
   showErrorMessage = false;
 
-  constructor(private fb: FormBuilder, private uiService: UIService) {
+  constructor(
+    private fb: FormBuilder,
+    private uiService: UIService,
+    private invoiceService: InvoiceService
+  ) {
     this.form = this.fb.group({
       senderAddress: this.fb.group({
         street: ['', Validators.required],
@@ -55,6 +60,23 @@ export class InvoiceFormComponent {
       this.form.markAllAsTouched();
       return;
     }
+
+    const newInvoice = this.form.value;
+    newInvoice.createdAt = new Date();
+    newInvoice.status = 'Draft';
+    newInvoice.total = 0;
+
+    this.invoiceItems.value.map((item) => {
+      item.total = item.quantity * item.price;
+      newInvoice.total += item.total;
+    });
+
+    this.invoiceService.createInvoice(this.form.value).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (error) => console.log('errores', error.message)
+    );
   }
 
   closeForm(): void {

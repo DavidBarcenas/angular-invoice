@@ -9,7 +9,10 @@
   </span>
   <p class="inovice-client">{{ invoice.clientName }}</p>
   <p class="invoice-total">£{{ invoice.total | number }}</p>
-  <span class="inovice-status" [ngClass]="'status-' + invoice.status">
+  <span
+    class="inovice-status"
+    [ngClass]="'status-' + invoice.status.toLowerCase()"
+  >
     {{ invoice.status }}
   </span>
   <img

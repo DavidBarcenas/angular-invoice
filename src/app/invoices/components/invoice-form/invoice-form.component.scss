@@ -210,9 +210,14 @@ fieldset {
   .form-section {
     grid-template-columns: 4rem repeat(4, 1fr) min-content;
     gap: 1.5rem 1rem;
+    margin-bottom: 1rem;
 
     @include mq(600px) {
       grid-template-columns: 2.5fr 4.125rem 1.25fr 0.75fr min-content;
+    }
+
+    &:not(.form-section:nth-of-type(1)) .form-control label {
+      display: none;
     }
 
     .form-control:nth-child(1) {
@@ -259,6 +264,7 @@ fieldset {
 
   button {
     margin-top: 1rem;
+    cursor: pointer;
 
     svg {
       fill: hsl(231, 20%, 61%);

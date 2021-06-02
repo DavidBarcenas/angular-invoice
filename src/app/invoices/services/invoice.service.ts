@@ -34,4 +34,11 @@ export class InvoiceService {
       `${environment.base_url}${environment.catalogs_endpoint}`
     );
   }
+
+  createInvoice(invoice: Invoice): Observable<Invoice> {
+    return this.http.post<Invoice>(
+      `${environment.base_url}${environment.invoice_endpoint}`,
+      invoice
+    );
+  }
 }
