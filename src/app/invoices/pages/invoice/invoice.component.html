@@ -9,13 +9,16 @@
   <div class="invoice-status-card flex-between theme-animation">
     <div class="flex-between">
       <p>Status</p>
-      <span class="inovice-status" [ngClass]="'status-' + invoice.status">
+      <span
+        class="inovice-status"
+        [ngClass]="'status-' + invoice.status.toLowerCase()"
+      >
         {{ invoice.status }}
       </span>
     </div>
     <div class="invoice-actions top">
       <button class="btn" (click)="handleEdit()">Edit</button>
-      <button class="btn btn-delete" (click)="handleDelete()">Delete</button>
+      <button class="btn btn-delete" (click)="openModal()">Delete</button>
     </div>
   </div>
 

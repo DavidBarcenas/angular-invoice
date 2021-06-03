@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UIService } from '../../../shared/services/ui.service';
 import { InvoiceService } from '../../services/invoice.service';
@@ -8,7 +8,7 @@ import { InvoiceService } from '../../services/invoice.service';
   templateUrl: './invoice-form.component.html',
   styleUrls: ['./invoice-form.component.scss'],
 })
-export class InvoiceFormComponent {
+export class InvoiceFormComponent implements OnInit {
   form: FormGroup;
   showErrorMessage = false;
 
@@ -37,6 +37,13 @@ export class InvoiceFormComponent {
       description: ['', Validators.required],
       items: this.fb.array([], Validators.required),
     });
+  }
+
+  ngOnInit() {
+    if (this.invoiceService.invoiceToEdit) {
+      this.invoiceService.invoiceToEdit.items.map(() => this.addItem());
+      this.form.patchValue(this.invoiceService.invoiceToEdit);
+    }
   }
 
   addItem(): void {
@@ -70,12 +77,25 @@ export class InvoiceFormComponent {
       newInvoice.total += item.total;
     });
 
-    this.invoiceService.createInvoice(this.form.value).subscribe(
-      (data) => {
-        console.log(data);
-      },
-      (error) => console.log('errores', error.message)
-    );
+    if (!this.invoiceService.invoiceToEdit) {
+      this.invoiceService.createInvoice(this.form.value).subscribe(
+        (data) => {
+          console.log(data);
+          this.uiService.closeForm();
+        },
+        (error) => console.log('errores', error.message)
+      );
+    } else {
+      this.invoiceService
+        .updateInvoice(this.invoiceService.invoiceToEdit._id, this.form.value)
+        .subscribe(
+          (data) => {
+            console.log(data);
+            this.uiService.closeForm();
+          },
+          (error) => console.log('errores', error.message)
+        );
+    }
   }
 
   closeForm(): void {

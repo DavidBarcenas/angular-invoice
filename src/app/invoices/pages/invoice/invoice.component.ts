@@ -38,6 +38,7 @@ export class InvoiceComponent implements OnInit {
 
   handleEdit() {
     this.uiService.toggleForm();
+    this.invoiceService.invoiceToEdit = this.invoice;
   }
 
   handleDelete() {

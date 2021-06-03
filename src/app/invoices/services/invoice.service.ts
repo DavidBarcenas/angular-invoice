@@ -10,6 +10,7 @@ import { Catalog } from '../interfaces/catalog.interface';
 })
 export class InvoiceService {
   termsCatalog: string[] = [];
+  invoiceToEdit: Invoice = null;
 
   constructor(private http: HttpClient) {}
 
@@ -40,6 +41,13 @@ export class InvoiceService {
   createInvoice(invoice: Invoice): Observable<Invoice> {
     return this.http.post<Invoice>(
       `${environment.base_url}${environment.invoice_endpoint}`,
+      invoice
+    );
+  }
+
+  updateInvoice(id: string, invoice: Invoice): Observable<Invoice> {
+    return this.http.put<Invoice>(
+      `${environment.base_url}${environment.invoice_endpoint}/${id}`,
       invoice
     );
   }

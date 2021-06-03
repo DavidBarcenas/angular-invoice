@@ -7,6 +7,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { UIService } from '../../../shared/services/ui.service';
+import { InvoiceService } from '../../services/invoice.service';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +20,10 @@ export class HeaderComponent implements OnChanges {
 
   filters: Filter[] = [];
 
-  constructor(private uiService: UIService) {}
+  constructor(
+    private uiService: UIService,
+    private invoiceService: InvoiceService
+  ) {}
 
   ngOnChanges(change: SimpleChanges): void {
     if (change.statusCatalog.currentValue) {
@@ -56,6 +60,7 @@ export class HeaderComponent implements OnChanges {
 
   toggleForm(): void {
     this.uiService.toggleForm();
+    this.invoiceService.invoiceToEdit = null;
   }
 
   get openFilter() {
