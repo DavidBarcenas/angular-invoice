@@ -9,6 +9,8 @@ import { Catalog } from '../interfaces/catalog.interface';
   providedIn: 'root',
 })
 export class InvoiceService {
+  termsCatalog: string[] = [];
+
   constructor(private http: HttpClient) {}
 
   getInvoices(status?: string): Observable<any[]> {

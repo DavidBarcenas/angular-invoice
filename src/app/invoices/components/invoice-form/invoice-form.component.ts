@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UIService } from '../../../shared/services/ui.service';
 import { InvoiceService } from '../../services/invoice.service';
@@ -9,7 +9,6 @@ import { InvoiceService } from '../../services/invoice.service';
   styleUrls: ['./invoice-form.component.scss'],
 })
 export class InvoiceFormComponent {
-  @Input() termsCatalog = [];
   form: FormGroup;
   showErrorMessage = false;
 
@@ -81,6 +80,10 @@ export class InvoiceFormComponent {
 
   closeForm(): void {
     this.uiService.closeForm();
+  }
+
+  get termsCatalog(): string[] {
+    return this.invoiceService.termsCatalog;
   }
 
   get invoiceItems(): FormArray {

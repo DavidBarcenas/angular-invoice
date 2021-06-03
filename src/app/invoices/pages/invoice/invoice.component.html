@@ -14,7 +14,7 @@
       </span>
     </div>
     <div class="invoice-actions top">
-      <button class="btn" (click)="closeModal()">Edit</button>
+      <button class="btn" (click)="handleEdit()">Edit</button>
       <button class="btn btn-delete" (click)="handleDelete()">Delete</button>
     </div>
   </div>
@@ -89,7 +89,7 @@
   </div>
 
   <div class="invoice-actions bottom">
-    <button class="btn">Edit</button>
+    <button class="btn" (click)="handleEdit()">Edit</button>
     <button class="btn btn-delete" (click)="openModal()">Delete</button>
   </div>
 </section>

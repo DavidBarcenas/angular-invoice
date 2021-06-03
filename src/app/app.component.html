@@ -6,6 +6,10 @@
     *ngIf="uiService.openForm"
   ></div>
   <app-sidebar></app-sidebar>
+  <app-invoice-form
+    [termsCatalog]="termsCatalog"
+    *ngIf="openForm"
+  ></app-invoice-form>
   <main class="invoice-main">
     <router-outlet></router-outlet>
   </main>

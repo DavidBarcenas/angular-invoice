@@ -3,10 +3,7 @@
   [statusCatalog]="statusCatalog"
   (filter)="filterByStatus($event)"
 ></app-header>
-<app-invoice-form
-  [termsCatalog]="termsCatalog"
-  *ngIf="openForm"
-></app-invoice-form>
+
 <section class="home">
   <app-invoice-list [invoices]="invoices$"></app-invoice-list>
 </section>
