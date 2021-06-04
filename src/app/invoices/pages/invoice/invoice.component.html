@@ -19,6 +19,13 @@
     <div class="invoice-actions top">
       <button class="btn" (click)="handleEdit()">Edit</button>
       <button class="btn btn-delete" (click)="openModal()">Delete</button>
+      <button
+        class="btn btn-paid"
+        (click)="markAsPaid()"
+        *ngIf="invoice.status.toLowerCase() !== 'paid'"
+      >
+        Mark As Paid
+      </button>
     </div>
   </div>
 

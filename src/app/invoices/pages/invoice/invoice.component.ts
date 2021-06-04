@@ -28,6 +28,8 @@ export class InvoiceComponent implements OnInit {
       .subscribe((invoice) => (this.invoice = invoice));
   }
 
+  markAsPaid(): void {}
+
   openModal(): void {
     this.modalService.open();
   }

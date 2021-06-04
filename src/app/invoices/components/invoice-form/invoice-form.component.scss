@@ -290,12 +290,12 @@ fieldset {
   }
 
   div {
-    button:nth-of-type(1) {
+    .btn-draft {
       background: hsl(230, 21%, 27%);
       color: #fff;
     }
 
-    button:nth-of-type(2) {
+    .btn-send {
       background: var(--dark-purple);
       color: #fff;
       margin-left: 0.5rem;

@@ -11,6 +11,8 @@ import { InvoiceService } from '../../services/invoice.service';
 export class InvoiceFormComponent implements OnInit {
   form: FormGroup;
   showErrorMessage = false;
+  invoiceStatus = 'Pending';
+  title = 'Create Invoice';
 
   constructor(
     private fb: FormBuilder,
@@ -41,6 +43,10 @@ export class InvoiceFormComponent implements OnInit {
 
   ngOnInit() {
     if (this.invoiceService.invoiceToEdit) {
+      this.invoiceStatus = this.invoiceService.invoiceToEdit.status;
+      this.title =
+        'Edit #' +
+        this.invoiceService.invoiceToEdit._id.substring(0, 6).toUpperCase();
       this.invoiceService.invoiceToEdit.items.map(() => this.addItem());
       this.form.patchValue(this.invoiceService.invoiceToEdit);
     }
@@ -69,7 +75,7 @@ export class InvoiceFormComponent implements OnInit {
 
     const newInvoice = this.form.value;
     newInvoice.createdAt = new Date();
-    newInvoice.status = 'Draft';
+    newInvoice.status = this.invoiceStatus;
     newInvoice.total = 0;
 
     this.invoiceItems.value.map((item) => {
@@ -96,6 +102,13 @@ export class InvoiceFormComponent implements OnInit {
           (error) => console.log('errores', error.message)
         );
     }
+  }
+
+  saveAsDraft() {
+    if (this.form.valid) {
+      this.invoiceStatus = 'Draft';
+    }
+    this.handleFormSubmit();
   }
 
   closeForm(): void {

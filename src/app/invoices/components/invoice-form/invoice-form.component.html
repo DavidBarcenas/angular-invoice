@@ -3,7 +3,7 @@
   [class.close-form]="animateFormClose"
 >
   <div class="form-wrap">
-    <h2>Create Invoice</h2>
+    <h2>{{ title }}</h2>
     <form [formGroup]="form" novalidate autocomplete="off">
       <fieldset>
         <legend>Bill From</legend>
@@ -226,8 +226,10 @@
     <div class="invoice-form-actions flex-between">
       <button class="btn" (click)="closeForm()">Discard</button>
       <div>
-        <button class="btn">Save as Draft</button>
-        <button class="btn" type="button" (click)="handleFormSubmit()">
+        <button class="btn btn-draft" (click)="saveAsDraft()">
+          Save as {{ invoiceStatus !== "Draft" ? "Draft" : "Pending" }}
+        </button>
+        <button class="btn btn-send" type="button" (click)="handleFormSubmit()">
           Save & Send
         </button>
       </div>
