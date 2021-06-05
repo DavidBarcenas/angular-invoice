@@ -26,9 +26,17 @@ export class InvoiceComponent implements OnInit {
     this.activatedRoute.params
       .pipe(switchMap(({ id }) => this.invoiceService.getInvoice(id)))
       .subscribe((invoice) => (this.invoice = invoice));
+
+      this.invoiceService.updatedInvoice$
+        .pipe(switchMap(() => this.invoiceService.getInvoice(this.invoice._id)))
+        .subscribe((invoice) => (this.invoice = invoice))
   }
 
-  markAsPaid(): void {}
+  markAsPaid(): void {
+    this.invoice.status = 'Paid'
+    const {_id, __v, ...rest} = this.invoice
+    this.invoiceService.updateInvoice(this.invoice._id, rest).subscribe()
+  }
 
   openModal(): void {
     this.modalService.open();

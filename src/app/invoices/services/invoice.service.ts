@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Invoice } from '../interfaces/invoice.interface';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Catalog } from '../interfaces/catalog.interface';
 
@@ -11,6 +11,7 @@ import { Catalog } from '../interfaces/catalog.interface';
 export class InvoiceService {
   termsCatalog: string[] = [];
   invoiceToEdit: Invoice = null;
+  updatedInvoice$ = new Subject();
 
   constructor(private http: HttpClient) {}
 

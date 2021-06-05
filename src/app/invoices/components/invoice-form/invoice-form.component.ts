@@ -85,8 +85,8 @@ export class InvoiceFormComponent implements OnInit {
 
     if (!this.invoiceService.invoiceToEdit) {
       this.invoiceService.createInvoice(this.form.value).subscribe(
-        (data) => {
-          console.log(data);
+        () => {
+          this.invoiceService.updatedInvoice$.next(true)
           this.uiService.closeForm();
         },
         (error) => console.log('errores', error.message)
@@ -95,8 +95,8 @@ export class InvoiceFormComponent implements OnInit {
       this.invoiceService
         .updateInvoice(this.invoiceService.invoiceToEdit._id, this.form.value)
         .subscribe(
-          (data) => {
-            console.log(data);
+          () => {
+            this.invoiceService.updatedInvoice$.next(true)
             this.uiService.closeForm();
           },
           (error) => console.log('errores', error.message)

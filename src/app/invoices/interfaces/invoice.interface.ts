@@ -1,5 +1,5 @@
 export interface Invoice {
-  _id: string;
+  _id?: string;
   createdAt: string;
   paymentDue: string;
   description: string;
@@ -11,6 +11,7 @@ export interface Invoice {
   clientAddress: Address;
   items: Item[];
   total: number;
+  __v?: number;
 }
 
 export interface Address {
