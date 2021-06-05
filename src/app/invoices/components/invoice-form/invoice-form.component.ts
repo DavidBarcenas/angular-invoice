@@ -23,31 +23,29 @@ export class InvoiceFormComponent implements OnInit {
   ) {
     this.form = this.fb.group({
       senderAddress: this.fb.group({
-        street: ['', Validators.required],
-        city: ['', Validators.required],
+        street:   ['', Validators.required],
+        city:     ['', Validators.required],
         postCode: ['', Validators.required],
-        country: ['', Validators.required],
+        country:  ['', Validators.required],
       }),
-      clientName: ['', Validators.required],
+      clientName:  ['', Validators.required],
       clientEmail: ['', Validators.required],
       clientAddress: this.fb.group({
-        street: ['', Validators.required],
-        city: ['', Validators.required],
+        street:   ['', Validators.required],
+        city:     ['', Validators.required],
         postCode: ['', Validators.required],
-        country: ['', Validators.required],
+        country:  ['', Validators.required],
       }),
-      paymentDue: ['', Validators.required],
+      paymentDue:   ['', Validators.required],
       paymentTerms: [30, Validators.required],
-      description: ['', Validators.required],
+      description:  ['', Validators.required],
       items: this.fb.array([], Validators.required),
     });
   }
 
   ngOnInit() {
     if (this.invoiceService.invoiceToEdit) {
-      this.title =
-        'Edit #' +
-        this.invoiceService.invoiceToEdit._id.substring(0, 6).toUpperCase();
+      this.title = 'Edit #' + this.invoiceService.invoiceToEdit._id.substring(0, 6).toUpperCase();
       this.invoiceService.invoiceToEdit.items.map(() => this.addItem());
       this.form.patchValue(this.invoiceService.invoiceToEdit);
     }
@@ -107,7 +105,7 @@ export class InvoiceFormComponent implements OnInit {
     }
   }
 
-  saveAsDraft() {
+  saveAsDraft(): void {
     if (this.form.valid) {
       this.invoiceStatus = 'Draft';
     }

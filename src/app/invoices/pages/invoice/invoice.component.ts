@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { ToastrService } from 'ngx-toastr';
+import { switchMap } from 'rxjs/operators';
+
 import { Invoice } from '../../interfaces/invoice.interface';
 import { InvoiceService } from '../../services/invoice.service';
-import { switchMap } from 'rxjs/operators';
 import { ModalService } from 'src/app/shared/services/modal.service';
 import { UIService } from 'src/app/shared/services/ui.service';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-invoice',
@@ -57,12 +58,12 @@ export class InvoiceComponent implements OnInit {
     this.modalService.close();
   }
 
-  handleEdit() {
+  handleEdit(): void {
     this.uiService.toggleForm();
     this.invoiceService.invoiceToEdit = this.invoice;
   }
 
-  handleDelete() {
+  handleDelete(): void {
     this.invoiceService.deleteInvoice(this.invoice._id)
       .subscribe(() => {
         this.toastrService.success('Invoice deleted successfully')
@@ -71,7 +72,8 @@ export class InvoiceComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  setTitle() {
-    this.titleService.setTitle(`Invoice | #${this.invoice._id.substring(0,6).toUpperCase()}`)
+  setTitle(): void {
+    const id = this.invoice._id.substring(0,6).toUpperCase()
+    this.titleService.setTitle(`Invoice | #${id}`)
   }
 }

@@ -1,11 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import {
-  EventEmitter,
-  Inject,
-  Injectable,
-  Renderer2,
-  RendererFactory2,
-} from '@angular/core';
+import { EventEmitter, Inject, Injectable, Renderer2, RendererFactory2, } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -40,12 +34,8 @@ export class UIService {
   }
 
   toggleForm(): void {
-    const paddingRight = parseInt(
-      window.getComputedStyle(this.body).paddingRight,
-      10
-    );
-    const scrollBarWidth =
-      window.innerWidth - this.document.documentElement.clientWidth;
+    const paddingRight = parseInt( window.getComputedStyle(this.body).paddingRight, 10);
+    const scrollBarWidth = window.innerWidth - this.document.documentElement.clientWidth;
     const offset = paddingRight + scrollBarWidth;
     this.openForm = !this.openForm;
 

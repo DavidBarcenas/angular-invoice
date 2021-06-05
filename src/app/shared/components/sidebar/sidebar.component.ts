@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ThemeService } from '../../services/theme.service';
 
 @Component({
@@ -20,11 +20,11 @@ export class SidebarComponent {
     this.themeService.toggleTheme();
   }
 
-  handleShowCredits() {
+  handleShowCredits(): void {
     this.showCredits = true;
   }
 
-  handleCloseCredits(closeCredits: boolean) {
+  handleCloseCredits(closeCredits: boolean): void {
     this.showCredits = closeCredits;
   }
 

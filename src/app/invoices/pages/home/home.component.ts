@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { switchMap } from 'rxjs/operators';
 import { Invoice } from '../../interfaces/invoice.interface';
 import { InvoiceService } from '../../services/invoice.service';
 
@@ -16,13 +17,14 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.invoicesService.getInvoices().subscribe(invoices => this.setInvoices(invoices));
 
-    this.invoicesService.refreshInvoices$.subscribe(() => {
-      this.invoicesService.getInvoices().subscribe(invoices => this.setInvoices(invoices));
-    })
+    this.invoicesService.refreshInvoices$
+      .pipe(switchMap(() => this.invoicesService.getInvoices()))
+      .subscribe(invoices => this.setInvoices(invoices))
   }
 
   filterByStatus(status: string): void {
-    this.invoicesService.getInvoices(status?.toLowerCase()).subscribe(invoices => this.setInvoices(invoices));
+    this.invoicesService.getInvoices(status?.toLowerCase())
+      .subscribe(invoices => this.setInvoices(invoices));
   }
 
   setInvoices(invoices: Invoice[]) {

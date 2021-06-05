@@ -1,22 +1,22 @@
 :root {
-  --light-purple: #{$light-purple};
-  --dark-purple: #{$dark-purple};
-  --bg-box: #{$light-bg};
-  --sidebar-bg: #{$light-sidebar-bg};
-  --body-bg: #{$light-body-bg};
-  --body-text: #{$light-body-text};
-  --btn-text: #{$light-btn-text};
+  --light-purple:      #{$light-purple};
+  --dark-purple:       #{$dark-purple};
+  --bg-box:            #{$light-bg};
+  --sidebar-bg:        #{$light-sidebar-bg};
+  --body-bg:           #{$light-body-bg};
+  --body-text:         #{$light-body-text};
+  --btn-text:          #{$light-btn-text};
   --dropdown-checkbox: #{$light-dropdown-checkbox};
-  --dropdown-shadow: #{$light-dropdown-shadow};
-  --dropdown-bg: #{$light-bg};
-  --table-bg: #{$light-table-bg};
-  --invoice-bg: #{$light-bg};
-  --btn-bg: #{$light-table-bg};
-  --actions-bg: #{$light-bg};
-  --total-amout-bg: #{$light-sidebar-bg};
-  --status-draft: #{hexToRGB($light-status-draft)};
-  --bg-form: #{$light-bg};
-  --color-border-input: #{$light-dropdown-checkbox};
+  --dropdown-shadow:   #{$light-dropdown-shadow};
+  --dropdown-bg:       #{$light-bg};
+  --table-bg:          #{$light-table-bg};
+  --invoice-bg:        #{$light-bg};
+  --btn-bg:            #{$light-table-bg};
+  --actions-bg:        #{$light-bg};
+  --total-amout-bg:    #{$light-sidebar-bg};
+  --status-draft:      #{hexToRGB($light-status-draft)};
+  --bg-form:           #{$light-bg};
+  --color-border-input:#{$light-dropdown-checkbox};
 }
 
 .theme-animation {

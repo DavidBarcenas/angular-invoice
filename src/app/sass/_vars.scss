@@ -1,38 +1,38 @@
 // General
-$light-purple: hsl(252, 100%, 73%);
-$dark-purple: hsl(252, 94%, 67%);
-$light-bg: hsl(0, 0%, 100%);
-$dark-bg: hsl(233, 31%, 21%);
-$status-paid: hsl(160, 67%, 52%);
-$status-pending: hsl(34, 100%, 50%);
+$light-purple      : hsl(252, 100%, 73%);
+$dark-purple       : hsl(252, 94%, 67%);
+$light-bg          : hsl(0, 0%, 100%);
+$dark-bg           : hsl(233, 31%, 21%);
+$status-paid       : hsl(160, 67%, 52%);
+$status-pending    : hsl(34, 100%, 50%);
 
 // Status-draft
 $light-status-draft: hsl(231, 20%, 27%);
-$dark-status-draft: hsl(231, 73%, 93%);
+$dark-status-draft : hsl(231, 73%, 93%);
 
 // Sidebar
-$light-sidebar-bg: hsl(231, 20%, 27%);
-$dark-sidebar-bg: hsl(233, 31%, 17%);
+$light-sidebar-bg  : hsl(231, 20%, 27%);
+$dark-sidebar-bg   : hsl(233, 31%, 17%);
 
 // Body
-$light-body-bg: hsl(240, 27%, 98%);
-$dark-body-bg: hsl(233, 30%, 11%);
-$light-body-text: hsl(228, 29%, 7%);
+$light-body-bg     : hsl(240, 27%, 98%);
+$dark-body-bg      : hsl(233, 30%, 11%);
+$light-body-text   : hsl(228, 29%, 7%);
 
 // Button Text {
-$light-btn-text: hsl(231, 37%, 63%);
-$dark-btn-text: hsl(231, 73%, 93%);
+$light-btn-text    : hsl(231, 37%, 63%);
+$dark-btn-text     : hsl(231, 73%, 93%);
 
 // Dropdown
 $light-dropdown-checkbox: hsl(231, 72%, 93%);
-$dark-dropdown-checkbox: hsl(233, 31%, 17%);
-$light-dropdown-shadow: rgb(71 83 158 / 25%);
-$dark-dropdown-shadow: rgb(0 0 0 / 25%);
+$dark-dropdown-checkbox : hsl(233, 31%, 17%);
+$light-dropdown-shadow  : rgb(71 83 158 / 25%);
+$dark-dropdown-shadow   : rgb(0 0 0 / 25%);
 
-$dark-border-input: hsl(233, 30%, 21%);
+$dark-border-input      : hsl(233, 30%, 21%);
 
 // Table
-$light-table-bg: hsl(228, 71%, 99%);
+$light-table-bg         : hsl(228, 71%, 99%);
 
 // Convert the value of a hexadecimal variable to RGB
 @function hexToRGB($hex) {

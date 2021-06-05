@@ -16,19 +16,9 @@
           [class.activeFilter]="openFilter"
         />
       </button>
-      <ul
-        (mouseleave)="closeFilter($event)"
-        class="dropdown"
-        *ngIf="openFilter"
-      >
-        <li
-          *ngFor="let filter of filters; let i = index"
-          (click)="toggleFilter(filter.name, i)"
-        >
-          <span
-            class="filter-checkbox"
-            [class.active-filter]="filter.checked"
-          ></span>
+      <ul (mouseleave)="closeFilter($event)" class="dropdown" *ngIf="openFilter" >
+        <li *ngFor="let filter of filters; let i = index" (click)="toggleFilter(filter.name, i)" >
+          <span class="filter-checkbox" [class.active-filter]="filter.checked" ></span>
           <span class="filter-text">{{ filter.name }}</span>
         </li>
       </ul>

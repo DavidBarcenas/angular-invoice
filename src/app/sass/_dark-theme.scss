@@ -1,18 +1,18 @@
 .dark-theme {
-  --sidebar-bg: #{$dark-sidebar-bg};
-  --bg-box: #{$dark-sidebar-bg};
-  --body-bg: #{$dark-body-bg};
-  --body-text: #{$light-bg};
-  --btn-text: #{$dark-btn-text};
-  --dropdown-checkbox: #{$dark-dropdown-checkbox};
-  --dropdown-shadow: #{$dark-dropdown-shadow};
-  --dropdown-bg: #{$dark-border-input};
-  --table-bg: #{$dark-bg};
-  --invoice-bg: #{$dark-sidebar-bg};
-  --btn-bg: #{$dark-bg};
-  --actions-bg: #{$dark-sidebar-bg};
-  --total-amout-bg: #{$light-body-text};
-  --status-draft: #{hexToRGB($dark-status-draft)};
-  --bg-form: #{$dark-body-bg};
+  --sidebar-bg:         #{$dark-sidebar-bg};
+  --bg-box:             #{$dark-sidebar-bg};
+  --body-bg:            #{$dark-body-bg};
+  --body-text:          #{$light-bg};
+  --btn-text:           #{$dark-btn-text};
+  --dropdown-checkbox:  #{$dark-dropdown-checkbox};
+  --dropdown-shadow:    #{$dark-dropdown-shadow};
+  --dropdown-bg:        #{$dark-border-input};
+  --table-bg:           #{$dark-bg};
+  --invoice-bg:         #{$dark-sidebar-bg};
+  --btn-bg:             #{$dark-bg};
+  --actions-bg:         #{$dark-sidebar-bg};
+  --total-amout-bg:     #{$light-body-text};
+  --status-draft:       #{hexToRGB($dark-status-draft)};
+  --bg-form:            #{$dark-body-bg};
   --color-border-input: #{$dark-border-input};
 }

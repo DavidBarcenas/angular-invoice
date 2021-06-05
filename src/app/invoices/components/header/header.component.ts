@@ -1,10 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  OnInit,
-  Output,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, } from '@angular/core';
 import { UIService } from '../../../shared/services/ui.service';
 import { InvoiceService } from '../../services/invoice.service';
 
@@ -23,14 +17,12 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-       this.invoiceService.statusCatalog.subscribe(data => {
-        this.filters = data.map((item: string) => ({
-          name: item,
-          checked: false,
-        }));
-
-      })
-
+    this.invoiceService.statusCatalog.subscribe(data => {
+      this.filters = data.map((item: string) => ({
+        name: item,
+        checked: false,
+      }));
+    })
   }
 
   toggleFilter(filterName: string, idx: number): void {

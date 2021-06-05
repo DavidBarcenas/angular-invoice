@@ -8,10 +8,7 @@ import { UIService } from './shared/services/ui.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(
-    public uiService: UIService,
-    private invoicesService: InvoiceService
-  ) {}
+  constructor( public uiService: UIService, private invoicesService: InvoiceService ) {}
 
   ngOnInit() {
     this.invoicesService.getCatalogs().subscribe((resp) => {
