@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  base_url: 'https://shrouded-thicket-06047.herokuapp.com',
+  base_url: 'http://localhost:3000',
   invoice_endpoint: '/invoices',
   catalogs_endpoint: '/catalogs',
 };

@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Invoice } from '../interfaces/invoice.interface';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Catalog } from '../interfaces/catalog.interface';
 
@@ -12,7 +12,7 @@ export class InvoiceService {
   termsCatalog: string[] = [];
   invoiceToEdit: Invoice = null;
   refreshInvoices$ = new Subject();
-  statusCatalog= new Subject();
+  statusCatalog = new BehaviorSubject([]);
 
   constructor(private http: HttpClient) {}
 
@@ -57,4 +57,5 @@ export class InvoiceService {
   deleteInvoice(id: string): Observable<boolean> {
     return this.http.delete<boolean>(`${environment.base_url}${environment.invoice_endpoint}/${id}`)
   }
+
 }
