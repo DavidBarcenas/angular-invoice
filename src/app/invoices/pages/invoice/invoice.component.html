@@ -101,14 +101,22 @@
   <div class="invoice-actions bottom">
     <button class="btn" (click)="handleEdit()">Edit</button>
     <button class="btn btn-delete" (click)="openModal()">Delete</button>
+    <button
+    class="btn btn-paid"
+    (click)="markAsPaid()"
+    *ngIf="invoice.status.toLowerCase() !== 'paid'"
+  >
+    Mark As Paid
+  </button>
   </div>
 </section>
+
 
 <app-modal>
   <div class="modal-invoice-delete">
     <h2>Confirm Deletion</h2>
     <p>
-      Are you sure you want to delete invoice {{ invoice?._id }}? This action
+      Are you sure you want to delete invoice {{ invoice?._id | slice: 0:6 | uppercase }}? This action
       cannot be undone.
     </p>
     <div class="invoice-actions">

@@ -103,13 +103,13 @@
 }
 
 .dropdown {
-  background: var(--bg-box);
+  background: var(--dropdown-bg);
   position: absolute;
   left: 50%;
   top: 3rem;
   box-shadow: 0px 10px 20px var(--dropdown-shadow);
   border-radius: 0.5rem;
-  padding: 1.3rem;
+  padding: 1.5rem;
   min-width: 12rem;
   transform: translateX(-50%);
   z-index: 20;

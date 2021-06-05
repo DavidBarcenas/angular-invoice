@@ -13,6 +13,7 @@ export class InvoiceService {
   invoiceToEdit: Invoice = null;
   refreshInvoices$ = new Subject();
   statusCatalog = new BehaviorSubject([]);
+  invoiceCounter = 0;
 
   constructor(private http: HttpClient) {}
 

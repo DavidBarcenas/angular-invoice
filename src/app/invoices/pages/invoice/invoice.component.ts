@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Invoice } from '../../interfaces/invoice.interface';
 import { InvoiceService } from '../../services/invoice.service';
@@ -21,13 +22,17 @@ export class InvoiceComponent implements OnInit {
     private modalService: ModalService,
     private router: Router,
     private uiService: UIService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private titleService: Title
   ) {}
 
   ngOnInit(): void {
     this.activatedRoute.params
       .pipe(switchMap(({ id }) => this.invoiceService.getInvoice(id)))
-      .subscribe((invoice) => (this.invoice = invoice));
+      .subscribe((invoice) => {
+        this.invoice = invoice
+        this.setTitle()
+      });
 
       this.invoiceService.refreshInvoices$
         .pipe(switchMap(() => this.invoiceService.getInvoice(this.invoice._id)))
@@ -64,5 +69,9 @@ export class InvoiceComponent implements OnInit {
       })
     this.modalService.close();
     this.router.navigate(['/']);
+  }
+
+  setTitle() {
+    this.titleService.setTitle(`Invoice | #${this.invoice._id.substring(0,6).toUpperCase()}`)
   }
 }

@@ -45,7 +45,6 @@ export class InvoiceFormComponent implements OnInit {
 
   ngOnInit() {
     if (this.invoiceService.invoiceToEdit) {
-      this.invoiceStatus = this.invoiceService.invoiceToEdit.status;
       this.title =
         'Edit #' +
         this.invoiceService.invoiceToEdit._id.substring(0, 6).toUpperCase();
@@ -77,7 +76,7 @@ export class InvoiceFormComponent implements OnInit {
 
     const newInvoice = this.form.value;
     newInvoice.createdAt = new Date();
-    newInvoice.status = this.invoiceStatus;
+    newInvoice.status = this.invoiceStatus
     newInvoice.total = 0;
 
     this.invoiceItems.value.map((item) => {
@@ -86,7 +85,7 @@ export class InvoiceFormComponent implements OnInit {
     });
 
     if (!this.invoiceService.invoiceToEdit) {
-      this.invoiceService.createInvoice(this.form.value).subscribe(
+      this.invoiceService.createInvoice(newInvoice).subscribe(
         () => {
           this.invoiceService.refreshInvoices$.next(true)
           this.uiService.closeForm();
@@ -96,7 +95,7 @@ export class InvoiceFormComponent implements OnInit {
       );
     } else {
       this.invoiceService
-        .updateInvoice(this.invoiceService.invoiceToEdit._id, this.form.value)
+        .updateInvoice(this.invoiceService.invoiceToEdit._id, newInvoice)
         .subscribe(
           () => {
             this.invoiceService.refreshInvoices$.next(true)

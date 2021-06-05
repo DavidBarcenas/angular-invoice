@@ -309,8 +309,10 @@
   }
 
   .invoice-actions {
+    bottom: auto;
     padding: 0;
     margin: 0;
+    position: initial;
     width: 100%;
   }
 }

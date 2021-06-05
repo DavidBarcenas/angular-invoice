@@ -5,14 +5,14 @@
   top: 80px;
   left: 0;
   height: calc(100vh - 80px);
-  border-radius: 0 2rem 2rem 0;
   background: var(--bg-form);
   z-index: 95;
   animation: slideIn 0.45s cubic-bezier(0.215, 0.61, 0.355, 1);
-
+  
   @include mq(lg) {
     top: 0;
     height: 100vh;
+    border-radius: 0 2rem 2rem 0;
     padding-left: 6.5rem;
   }
 
@@ -177,7 +177,7 @@ fieldset {
 }
 
 .bill-to .form-control:nth-child(6) {
-  grid-column: 2 / -1;
+  grid-column: 1 / -1;
 
   @include mq(600px) {
     grid-column: 3 / 4;
@@ -201,6 +201,8 @@ fieldset {
 }
 
 .add-items {
+  margin-bottom: .5rem;
+
   h3 {
     color: hsl(225, 14%, 53%);
     margin-bottom: 1.75rem;
@@ -210,14 +212,17 @@ fieldset {
   .form-section {
     grid-template-columns: 4rem repeat(4, 1fr) min-content;
     gap: 1.5rem 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.75rem;
 
     @include mq(600px) {
       grid-template-columns: 2.5fr 4.125rem 1.25fr 0.75fr min-content;
+      margin-bottom: 1rem;
     }
 
     &:not(.form-section:nth-of-type(1)) .form-control label {
-      display: none;
+      @include mq(600px) {
+        display: none;
+      }
     }
 
     .form-control:nth-child(1) {
@@ -253,7 +258,8 @@ fieldset {
         color: hsl(231, 20%, 61%);
         border: none;
         background: none;
-        padding-left: 0.5rem;
+        padding-left: 0;
+        padding-right: 0;
       }
     }
 
