@@ -1,8 +1,7 @@
 import {
   Component,
   EventEmitter,
-  Input,
-  OnChanges,
+  OnInit,
   Output,
   SimpleChanges,
 } from '@angular/core';
@@ -14,10 +13,8 @@ import { InvoiceService } from '../../services/invoice.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnChanges {
+export class HeaderComponent implements OnInit {
   @Output() filter = new EventEmitter<string>();
-  @Input() statusCatalog = [];
-
   filters: Filter[] = [];
 
   constructor(
@@ -25,13 +22,14 @@ export class HeaderComponent implements OnChanges {
     private invoiceService: InvoiceService
   ) {}
 
-  ngOnChanges(change: SimpleChanges): void {
-    if (change.statusCatalog.currentValue) {
-      this.filters = this.statusCatalog.map((item: string) => ({
+  ngOnInit(): void {
+    this.invoiceService.statusCatalog.subscribe((data: string[]) => {
+      this.filters = data.map((item: string) => ({
         name: item,
         checked: false,
       }));
-    }
+
+    })
   }
 
   toggleFilter(filterName: string, idx: number): void {

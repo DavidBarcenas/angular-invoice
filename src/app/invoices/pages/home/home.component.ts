@@ -10,20 +10,19 @@ import { InvoiceService } from '../../services/invoice.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  invoices$: Observable<Invoice[]>;
-  statusCatalog: string[] = [];
+  invoices: Invoice[] = []
 
   constructor(private invoicesService: InvoiceService) {}
 
   ngOnInit(): void {
-    this.invoices$ = this.invoicesService.getInvoices();
-    this.invoicesService.getCatalogs().subscribe((resp) => {
-      this.statusCatalog = resp[0].status;
-      this.invoicesService.termsCatalog = resp[0].paymentTerms;
-    });
+    this.invoicesService.getInvoices().subscribe(invoices => this.invoices = invoices);
+
+    this.invoicesService.refreshInvoices$.subscribe(() => {
+      this.invoicesService.getInvoices().subscribe(invoices => this.invoices = invoices);
+    })
   }
 
   filterByStatus(status: string): void {
-    this.invoices$ = this.invoicesService.getInvoices(status?.toLowerCase());
+    this.invoicesService.getInvoices(status?.toLowerCase()).subscribe(invoices => this.invoices = invoices);
   }
 }

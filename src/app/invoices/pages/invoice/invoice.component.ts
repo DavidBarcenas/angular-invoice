@@ -29,7 +29,7 @@ export class InvoiceComponent implements OnInit {
       .pipe(switchMap(({ id }) => this.invoiceService.getInvoice(id)))
       .subscribe((invoice) => (this.invoice = invoice));
 
-      this.invoiceService.updatedInvoice$
+      this.invoiceService.refreshInvoices$
         .pipe(switchMap(() => this.invoiceService.getInvoice(this.invoice._id)))
         .subscribe((invoice) => {
           this.invoice = invoice
@@ -40,7 +40,8 @@ export class InvoiceComponent implements OnInit {
   markAsPaid(): void {
     this.invoice.status = 'Paid'
     const {_id, __v, ...rest} = this.invoice
-    this.invoiceService.updateInvoice(this.invoice._id, rest).subscribe()
+    this.invoiceService.updateInvoice(this.invoice._id, rest)
+      .subscribe(() => this.toastrService.success('Invoice updated successfully'))
   }
 
   openModal(): void {
@@ -57,7 +58,10 @@ export class InvoiceComponent implements OnInit {
   }
 
   handleDelete() {
-    // TODO: remove invoice from database
+    this.invoiceService.deleteInvoice(this.invoice._id)
+      .subscribe(() => {
+        this.toastrService.success('Invoice deleted successfully')
+      })
     this.modalService.close();
     this.router.navigate(['/']);
   }

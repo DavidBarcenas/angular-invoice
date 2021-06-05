@@ -1,9 +1,8 @@
 <!-- TODO: add invoices counter -->
 <app-header
-  [statusCatalog]="statusCatalog"
   (filter)="filterByStatus($event)"
 ></app-header>
 
 <section class="home">
-  <app-invoice-list [invoices]="invoices$"></app-invoice-list>
+  <app-invoice-list [invoices]="invoices"></app-invoice-list>
 </section>

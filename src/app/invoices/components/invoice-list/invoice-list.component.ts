@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Invoice } from '../../interfaces/invoice.interface';
 import { UIService } from '../../../shared/services/ui.service';
 
@@ -8,7 +7,7 @@ import { UIService } from '../../../shared/services/ui.service';
   templateUrl: './invoice-list.component.html',
 })
 export class InvoiceListComponent implements OnInit {
-  @Input() invoices: Observable<Invoice>;
+  @Input() invoices: Invoice[];
   activeFilter: string;
 
   constructor(private uiService: UIService) {}

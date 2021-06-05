@@ -11,7 +11,8 @@ import { Catalog } from '../interfaces/catalog.interface';
 export class InvoiceService {
   termsCatalog: string[] = [];
   invoiceToEdit: Invoice = null;
-  updatedInvoice$ = new Subject();
+  refreshInvoices$ = new Subject();
+  statusCatalog= new Subject();
 
   constructor(private http: HttpClient) {}
 
@@ -51,5 +52,9 @@ export class InvoiceService {
       `${environment.base_url}${environment.invoice_endpoint}/${id}`,
       invoice
     );
+  }
+
+  deleteInvoice(id: string): Observable<boolean> {
+    return this.http.delete<boolean>(`${environment.base_url}${environment.invoice_endpoint}/${id}`)
   }
 }
