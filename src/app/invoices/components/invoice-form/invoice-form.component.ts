@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { UIService } from '../../../shared/services/ui.service';
 import { InvoiceService } from '../../services/invoice.service';
 
@@ -17,7 +18,8 @@ export class InvoiceFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private uiService: UIService,
-    private invoiceService: InvoiceService
+    private invoiceService: InvoiceService,
+    private toastrService: ToastrService
   ) {
     this.form = this.fb.group({
       senderAddress: this.fb.group({
@@ -88,8 +90,9 @@ export class InvoiceFormComponent implements OnInit {
         () => {
           this.invoiceService.updatedInvoice$.next(true)
           this.uiService.closeForm();
+          this.toastrService.success('Invoice created successfully')
         },
-        (error) => console.log('errores', error.message)
+        (error) => this.toastrService.error(error.message)
       );
     } else {
       this.invoiceService
@@ -98,8 +101,9 @@ export class InvoiceFormComponent implements OnInit {
           () => {
             this.invoiceService.updatedInvoice$.next(true)
             this.uiService.closeForm();
+            this.toastrService.success('Invoice updated successfully')
           },
-          (error) => console.log('errores', error.message)
+          (error) => this.toastrService.error(error.message)
         );
     }
   }

@@ -5,6 +5,7 @@ import { InvoiceService } from '../../services/invoice.service';
 import { switchMap } from 'rxjs/operators';
 import { ModalService } from 'src/app/shared/services/modal.service';
 import { UIService } from 'src/app/shared/services/ui.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-invoice',
@@ -19,7 +20,8 @@ export class InvoiceComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private modalService: ModalService,
     private router: Router,
-    private uiService: UIService
+    private uiService: UIService,
+    private toastrService: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -29,7 +31,10 @@ export class InvoiceComponent implements OnInit {
 
       this.invoiceService.updatedInvoice$
         .pipe(switchMap(() => this.invoiceService.getInvoice(this.invoice._id)))
-        .subscribe((invoice) => (this.invoice = invoice))
+        .subscribe((invoice) => {
+          this.invoice = invoice
+          this.toastrService.success('Invoice updated successfully')
+        })
   }
 
   markAsPaid(): void {
