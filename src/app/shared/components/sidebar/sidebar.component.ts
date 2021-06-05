@@ -33,7 +33,7 @@ export class SidebarComponent {
   }
 
   get themeIcon(): string {
-    return `../../../assets/img/${
+    return `./assets/img/${
       this.isDarkTheme ? this.ICON_SUN : this.ICON_MOON
     }.svg`;
   }
