@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { ToastrService } from 'ngx-toastr';
@@ -8,14 +8,19 @@ import { Invoice } from '../../interfaces/invoice.interface';
 import { InvoiceService } from '../../services/invoice.service';
 import { ModalService } from 'src/app/shared/services/modal.service';
 import { UIService } from 'src/app/shared/services/ui.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-invoice',
   templateUrl: './invoice.component.html',
   styleUrls: ['./invoice.component.scss'],
 })
-export class InvoiceComponent implements OnInit {
+export class InvoiceComponent implements OnInit, OnDestroy {
   invoice: Invoice;
+  activatedRoute$: Subscription;
+  refreshInvoices$: Subscription;
+  updateInvoices$: Subscription;
+  deleteInvoices$: Subscription;
 
   constructor(
     private invoiceService: InvoiceService,
@@ -28,26 +33,22 @@ export class InvoiceComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params
+    this.activatedRoute$ = this.activatedRoute.params
       .pipe(switchMap(({ id }) => this.invoiceService.getInvoice(id)))
       .subscribe((invoice) => {
-        console.log('entra params')
         this.invoice = invoice
         this.setTitle()
       });
 
-      this.invoiceService.refreshInvoices$
+    this.refreshInvoices$ = this.invoiceService.refreshInvoices$
       .pipe(switchMap(() => this.invoiceService.getInvoice(this.invoice._id)))
-      .subscribe((invoice) => {
-          console.log('entra refresh')
-          this.invoice = invoice
-        })
+      .subscribe((invoice) => this.invoice = invoice)
   }
 
   markAsPaid(): void {
     this.invoice.status = 'Paid'
     const {_id, __v, ...rest} = this.invoice
-    this.invoiceService.updateInvoice(this.invoice._id, rest)
+    this.updateInvoices$ = this.invoiceService.updateInvoice(this.invoice._id, rest)
       .subscribe(() => this.toastrService.success('Invoice updated successfully'))
   }
 
@@ -65,7 +66,7 @@ export class InvoiceComponent implements OnInit {
   }
 
   handleDelete(): void {
-    this.invoiceService.deleteInvoice(this.invoice._id)
+    this.deleteInvoices$ = this.invoiceService.deleteInvoice(this.invoice._id)
       .subscribe(() => {
         this.toastrService.success('Invoice deleted successfully')
       })
@@ -76,5 +77,12 @@ export class InvoiceComponent implements OnInit {
   setTitle(): void {
     const id = this.invoice._id.substring(0,6).toUpperCase()
     this.titleService.setTitle(`Invoice | #${id}`)
+  }
+
+  ngOnDestroy(): void {
+    this.activatedRoute$?.unsubscribe();
+    this.refreshInvoices$?.unsubscribe();
+    this.updateInvoices$?.unsubscribe();
+    this.deleteInvoices$?.unsubscribe();
   }
 }
