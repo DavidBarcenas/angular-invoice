@@ -20,8 +20,12 @@ export class HeaderComponent implements OnInit {
     this.invoiceService.statusCatalog.subscribe(data => {
       this.filters = data.map((item: string) => ({
         name: item,
-        checked: false,
+        checked: this.activeFilter === item
       }));
+    })
+
+    this.invoiceService.refreshInvoices$.subscribe(() => {
+      this.filters.map(filter => filter.checked = false)
     })
   }
 
@@ -52,6 +56,10 @@ export class HeaderComponent implements OnInit {
   toggleForm(): void {
     this.uiService.toggleForm();
     this.invoiceService.invoiceToEdit = null;
+  }
+
+  get activeFilter() {
+    return this.invoiceService.activeFilter;
   }
 
   get counter() {

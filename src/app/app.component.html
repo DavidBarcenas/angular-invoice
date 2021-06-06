@@ -1,8 +1,8 @@
 <div class="container" (click)="uiService.closeFilter($event)">
   <div class="backdrop" 
     [class.backdrop-close]="uiService.animationCloseForm" 
-    (click)="uiService.closeForm()" *
-    ngIf="uiService.openForm">
+    (click)="uiService.closeForm()" 
+    *ngIf="uiService.openForm">
   </div>
   <app-sidebar></app-sidebar>
   <app-invoice-form [termsCatalog]="termsCatalog" *ngIf="openForm" ></app-invoice-form>

@@ -41,11 +41,13 @@
 .status-paid,
 .status-pending,
 .status-draft {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 700;
-  line-height: 2.3rem;
   text-transform: capitalize;
   width: 105px;
-  text-align: center;
+  height: 40px;
 
   &:before {
     content: "";
@@ -55,6 +57,7 @@
     border-radius: 50%;
     background: inherit;
     margin-right: 0.3rem;
+    margin-bottom: .1rem;
   }
 }
 

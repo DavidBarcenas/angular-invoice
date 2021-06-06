@@ -31,15 +31,16 @@ export class InvoiceComponent implements OnInit {
     this.activatedRoute.params
       .pipe(switchMap(({ id }) => this.invoiceService.getInvoice(id)))
       .subscribe((invoice) => {
+        console.log('entra params')
         this.invoice = invoice
         this.setTitle()
       });
 
       this.invoiceService.refreshInvoices$
-        .pipe(switchMap(() => this.invoiceService.getInvoice(this.invoice._id)))
-        .subscribe((invoice) => {
+      .pipe(switchMap(() => this.invoiceService.getInvoice(this.invoice._id)))
+      .subscribe((invoice) => {
+          console.log('entra refresh')
           this.invoice = invoice
-          this.toastrService.success('Invoice updated successfully')
         })
   }
 

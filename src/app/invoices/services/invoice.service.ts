@@ -14,6 +14,7 @@ export class InvoiceService {
   refreshInvoices$ = new Subject();
   statusCatalog = new BehaviorSubject([]);
   invoiceCounter = 0;
+  activeFilter = null
 
   constructor(private http: HttpClient) {}
 

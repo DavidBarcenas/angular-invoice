@@ -29,7 +29,7 @@ export class InvoiceFormComponent implements OnInit {
         country:  ['', Validators.required],
       }),
       clientName:  ['', Validators.required],
-      clientEmail: ['', Validators.required],
+      clientEmail: ['', [Validators.required, Validators.email]],
       clientAddress: this.fb.group({
         street:   ['', Validators.required],
         city:     ['', Validators.required],
@@ -37,8 +37,8 @@ export class InvoiceFormComponent implements OnInit {
         country:  ['', Validators.required],
       }),
       paymentDue:   ['', Validators.required],
-      paymentTerms: [30, Validators.required],
-      description:  ['', Validators.required],
+      paymentTerms: [30, [Validators.required, Validators.min(0)]],
+      description:  ['', [Validators.required, Validators.min(0)]],
       items: this.fb.array([], Validators.required),
     });
   }
@@ -85,6 +85,7 @@ export class InvoiceFormComponent implements OnInit {
     if (!this.invoiceService.invoiceToEdit) {
       this.invoiceService.createInvoice(newInvoice).subscribe(
         () => {
+          this.invoiceService.activeFilter = null
           this.invoiceService.refreshInvoices$.next(true)
           this.uiService.closeForm();
           this.toastrService.success('Invoice created successfully')
