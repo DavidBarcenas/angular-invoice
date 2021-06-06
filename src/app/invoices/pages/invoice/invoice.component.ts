@@ -69,9 +69,9 @@ export class InvoiceComponent implements OnInit, OnDestroy {
     this.deleteInvoices$ = this.invoiceService.deleteInvoice(this.invoice._id)
       .subscribe(() => {
         this.toastrService.success('Invoice deleted successfully')
+        this.modalService.close();
+        this.router.navigate(['/']);
       })
-    this.modalService.close();
-    this.router.navigate(['/']);
   }
 
   setTitle(): void {
