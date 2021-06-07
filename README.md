@@ -1,27 +1,35 @@
-# InvoiceApp
+# Invoice App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.1.
+An invoice app based on a frontend mentor challenge. It contains a CRUD based on a backend with Nestjs and a database with MongoDB. You can see a live demo at this [link](https://davidbarcenas.github.io/angular-invoice/).
 
-## Development server
+### Preview  
+![](./.readme-static/app.jpg)
+
+### Features
+
+- Create, read, update, and delete invoices
+- Toggle light and dark mode
+- Filter invoices by status (draft/pending/paid)
+- Form validation and component animations
+- Use an API made with Nestjs
+- Maintains data persistence
+
+### Running the app
+
+Clone/download the project and run `npm install` to build the dependencies the project needs.
+
+#### Development
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
+#### Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+### Notes
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+When you start the project make sure you have the backend running that is in the following [link.](https://github.com/DavidBarcenas/nestjs-invoice-api)
 
-## Running end-to-end tests
+### License
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Released under the [MIT licensed](LICENSE)
